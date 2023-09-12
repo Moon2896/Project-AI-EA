@@ -1,6 +1,5 @@
 from argparse import ArgumentParser
 from src.naive import naive_TSP
-from sys import maxsize
 from timeit import default_timer as timer
 
 def main():
