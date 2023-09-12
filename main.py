@@ -11,7 +11,7 @@ def main():
     s = 0
 
     start = timer()
-    print(naive_TSP(graph, s));
+    # print(naive_TSP(graph, s));
     end = timer()
     print("Time elapsed: ", end - start)
 
