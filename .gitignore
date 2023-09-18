@@ -1,6 +1,8 @@
-target/
-Cargo.lock
+./rust_implem/Cargo.lock
 
 # Added by cargo
 
-/target
+./rust_implem/target/
+
+# ignore the results directory
+./python_implem/results
