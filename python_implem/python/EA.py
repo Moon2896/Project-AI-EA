@@ -222,11 +222,12 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
     # Append to DataFrame
     new_row = {
         'Iteration': step,
-        'Best Individual': str(best_individual.path),
+        'Number of Individuals': len(individuals),
+        'Best Individual': best_individual.path,
+        'All Scores': scores,
         'Number of Same Individuals': num_same_individuals,
         'Number of Shared Patterns': num_shared_patterns,
         'Score': best_score,
-        'All Scores': -1, #scores,
         'alpha':alpha,
         'beta':beta,
         'gamma':gamma,
@@ -237,7 +238,7 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
     }
     df = df._append(new_row, ignore_index=True)
 
-    append_to_csv('../output.csv', new_row)    
+    append_to_csv(output_csv_path, new_row)    
     
     return df
 
@@ -246,7 +247,7 @@ def append_to_csv(filename, data):
         # Open the CSV file in append mode
         with open(filename, mode='a', newline='') as file:
             fieldnames = data.keys()
-            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=';')
 
             # If the file is empty, write the header
             if file.tell() == 0:
@@ -255,7 +256,7 @@ def append_to_csv(filename, data):
             # Write the data to the CSV file
             writer.writerow(data)
 
-        print("Data appended to", filename)
+        #print("Data appended to", filename)
     except Exception as e:
         print("Error:", e)
 
@@ -312,7 +313,7 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
     
 
 
-    for i in range(max_iterations):
+    for i in tqdm(range(max_iterations)):
         individuals = epoch(individuals, distance_matrix, alpha, beta, gamma)
         statistics_df = update_statistics(statistics_df, distance_matrix, i, individuals, alpha, beta, gamma)
         
@@ -388,20 +389,30 @@ def visualize_path_on_map(individual, cities_df):
     
     return m
 
+global output_csv_path
+output_csv_path = './python_implem/output.csv'
+
+global french_cities_path
+french_cities_path = './python_implem/python/fr.csv'
+
 if __name__ == "__main__":
     print("Clearing output.csv")
-    clear_csv_file('../output.csv')
+    clear_csv_file(output_csv_path)
 
     # import cities csv
     print('Loading French cities')
-    french_cities = pd.read_json('./fr.json')
+    import os
+    print("Current Working Directory:", os.getcwd())
+    try:
+        french_cities = pd.read_csv(french_cities_path)
+    except ValueError as e:
+        print("Error reading CSV file:", e)
+    
 
     # cities df
     C = french_cities[['city','lat','lng']]
-
-    # for max_cities in [5, 10, 25, 100, 200, 300, 400, 500, 600, 634]:
     
-    max_cities = 300
+    max_cities = 50
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
@@ -416,9 +427,6 @@ if __name__ == "__main__":
     initial_gamma = 1
     initial_beta = 0
 
-        # for initial_alpha in np.linspace(0.1, 1, 10):
-        #     for initial_gamma in np.linspace(0.1, 1, 10):
-
     start = time.time_ns()
     print('Training iteration {} {} {}...'.format(max_cities, initial_alpha, initial_gamma))
 
@@ -430,8 +438,7 @@ if __name__ == "__main__":
         initial_beta=initial_beta,
         initial_gamma=initial_gamma,
         max_iterations=10_000,
-        early_stopping_rounds=1_000,
-
+        early_stopping_rounds=1_000
         )
 
     best_iteration = np.argmin(results['Score'])

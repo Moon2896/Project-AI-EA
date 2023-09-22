@@ -2,33 +2,102 @@
 // import * as PIXI from './pixi.js';
 
 // Create a Pixi.js application
-const app = new PIXI.Application({ width: 800, height: 600 });
-
-// Add the Pixi.js canvas to the HTML container
-document.getElementById('pixi-container').appendChild(app.view);
-
-// Your Pixi.js visualization code goes here
-//Step 3: Display Python Algorithm Results
-//In your pixi-app.js file, you can fetch data from your Python program (located in the python directory) and use Pixi.js to display it in the canvas. You can use techniques like AJAX requests or WebSocket communication to transfer data from your Python code to your Pixi.js application.
+const app = new PIXI.Application({ width: 900, height: 900 });
 document.body.appendChild(app.view);
 
 const container = new PIXI.Container();
-
 app.stage.addChild(container);
 
-// Fetch CSV data from the Express.js server
-fetch('/data')
-  .then((response) => {
+
+// Function to convert a fetch to json
+async function convertFetched(inputString) {
+
+  if (typeof inputString !== 'string') {
+    console.error('Input is not a string.');
+    return;
+  }
+  // Split the input string by commas
+  const values = inputString.split(';');
+
+  // Extract values and convert to appropriate types
+  const iteration = parseInt(values[0]);
+  const noi = parseInt(values[1]); // Number Of Individuals
+
+  const bestIndividualString = values[2];
+  const bestIndividual = bestIndividualString.slice(1, -1).split(',').map(Number);
+  
+  const allScoresString = values[3];
+  const allScores = allScoresString.slice(1, -1).split(',').map(Number);
+  
+  const numSameIndividuals = parseInt(values[4]);
+  const numSharedPatterns = parseInt(values[5]);
+  const score = parseFloat(values[5+1]);
+  const alpha = parseFloat(values[6+1]);
+  const beta = parseFloat(values[7+1]);
+  const gamma = parseFloat(values[8+1]);
+  const median = parseFloat(values[9+1]);
+  const q1 = parseFloat(values[10+1]);
+  const q3 = parseFloat(values[11+1]);
+  const max = parseFloat(values[12+1]);
+
+  // Create the JSON object
+  const jsonObject = {
+    Iteration: iteration,
+    'Best Individual': bestIndividual,
+    'Number of Same Individuals': numSameIndividuals,
+    'Number of Shared Patterns': numSharedPatterns,
+    Score: score,
+    'All Scores': allScores,
+    alpha: alpha,
+    beta: beta,
+    gamma: gamma,
+    Median: median,
+    Q1: q1,
+    Q3: q3,
+    Max: max,
+  };
+  return jsonObject;
+};
+
+// Function to fetch data from the server
+async function fetchData() {
+  try {
+    const response = await fetch('http://localhost:3000/data'); // Assuming your server is serving data at '/data'
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    return response.text();
-  })
-  .then((csvData) => {
-    // Process the CSV data and use it in your Pixi.js visualization
-    console.log(csvData);
-    // You can parse and use the CSV data as needed
-  })
-  .catch((error) => {
+    const data = await response.text();
+    return data;
+  } catch (error) {
     console.error('Fetch error:', error);
-  });
+    // text.text = 'Error fetching data';
+  }
+}
+
+// Function to update the displayed values
+async function updateDisplayedValues(data) {
+  try {
+     document.getElementById('iteration').textContent = `Iteration: ${data.Iteration}`;
+     document.getElementById('best-score').textContent = `Best Score: ${data.Score}`;
+     document.getElementById('shared-patterns').textContent = `Number of Shared Patterns: ${data['Number of Shared Patterns']}`;
+  } catch (error) {
+     console.error('Error fetching data:', error);
+  }
+}
+
+// Use setInterval to periodically update displayed values
+const updateInterval = 1000; // Update every 1 second (adjust as needed)
+setInterval(() => {
+  // updateDisplayedValues();
+}, updateInterval);
+
+// Use Pixi's ticker to update data every frame
+app.ticker.add(async () => {
+  // Update the displayed values
+  var data = await fetchData(); // Wait for the data promise to resolve
+  data = await convertFetched(data);
+  updateDisplayedValues(data);
+});
+
+// Start fetching data immediately
+fetchData();

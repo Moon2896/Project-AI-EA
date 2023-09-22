@@ -1,28 +1,41 @@
 const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const readline = require('readline');
 const fs = require('fs');
-const cors = require('cors');
+
 const app = express();
 const port = 3000;
+
+const cors = require('cors');
 app.use(cors());
 
-// Configure the proxy middleware to forward requests to the Python server
-// const pythonServerProxy = createProxyMiddleware({
-//     target: 'http://localhost:8000', // Specify the URL of the Python server
-//     changeOrigin: true, // Set this to true to change the origin to match the target server
-//   });
-
-// app.use('/data', pythonServerProxy);
-
-
 app.get('/data', (req, res) => {
-  // Read the CSV file and send it as a response
-  fs.readFile('output.csv', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error reading CSV file');
+  // Specify the path to your CSV file
+  const csvFilePath = './python_implem/output.csv';
+
+  // Create a readable stream for reading the CSV file
+  const fileStream = fs.createReadStream(csvFilePath);
+
+  // Create a readline interface
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity, // To handle line endings on different platforms
+  });
+
+  let lastLine = null;
+
+  // Read the file line by line
+  rl.on('line', (line) => {
+    lastLine = line; // Store the current line as the last line
+  });
+
+  // When the entire file has been read
+  rl.on('close', () => {
+    if (lastLine !== null) {
+      // Send the last line as the response
+      res.send(lastLine);
     } else {
-      res.send(data);
+      console.log('The file is empty.');
+      res.status(404).send('CSV file is empty');
     }
   });
 });

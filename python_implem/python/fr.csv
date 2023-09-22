@@ -1,0 +1,635 @@
+city,lat,lng,country,iso2,admin_name,capital,population,population_proper
+Paris,48.8567,2.3522,France,FR,Île-de-France,primary,11060000,2148271
+Marseille,43.2964,5.37,France,FR,Provence-Alpes-Côte d’Azur,admin,870731,870731
+Lyon,45.76,4.84,France,FR,Auvergne-Rhône-Alpes,admin,522969,522969
+Toulouse,43.6045,1.444,France,FR,Occitanie,admin,493465,493465
+Nice,43.7034,7.2663,France,FR,Provence-Alpes-Côte d’Azur,minor,342669,342669
+Nantes,47.2181,-1.5528,France,FR,Pays de la Loire,admin,318808,318808
+Montpellier,43.6119,3.8772,France,FR,Occitanie,minor,295542,295542
+Strasbourg,48.5833,7.7458,France,FR,Grand Est,admin,290576,290576
+Bordeaux,44.84,-0.58,France,FR,Nouvelle-Aquitaine,admin,260958,260958
+Lille,50.6278,3.0583,France,FR,Hauts-de-France,admin,234475,234475
+Rennes,48.1147,-1.6794,France,FR,Bretagne,admin,220488,220488
+Reims,49.2628,4.0347,France,FR,Grand Est,minor,182211,181194
+Toulon,43.1258,5.9306,France,FR,Provence-Alpes-Côte d’Azur,minor,178745,178745
+Saint-Étienne,45.4347,4.3903,France,FR,Auvergne-Rhône-Alpes,minor,173821,173821
+Le Havre,49.49,0.1,France,FR,Normandie,minor,169733,168290
+Grenoble,45.1715,5.7224,France,FR,Auvergne-Rhône-Alpes,minor,158198,158198
+Dijon,47.3167,5.0167,France,FR,Bourgogne-Franche-Comté,admin,158002,158002
+Angers,47.4736,-0.5542,France,FR,Pays de la Loire,minor,155850,155850
+Villeurbanne,45.7667,4.8803,France,FR,Auvergne-Rhône-Alpes,,152212,152212
+Nîmes,43.838,4.361,France,FR,Occitanie,minor,149633,148561
+Clermont-Ferrand,45.7831,3.0824,France,FR,Auvergne-Rhône-Alpes,minor,147865,147865
+Aix-en-Provence,43.5263,5.4454,France,FR,Provence-Alpes-Côte d’Azur,minor,145133,145133
+Le Mans,48.0077,0.1984,France,FR,Pays de la Loire,minor,143847,143847
+Brest,48.39,-4.49,France,FR,Bretagne,minor,139926,139926
+Tours,47.3936,0.6892,France,FR,Centre-Val de Loire,minor,137087,137087
+Amiens,49.892,2.299,France,FR,Hauts-de-France,minor,134706,134706
+Limoges,45.8353,1.2625,France,FR,Nouvelle-Aquitaine,minor,131479,130876
+Annecy,45.916,6.133,France,FR,Auvergne-Rhône-Alpes,minor,130721,130721
+Boulogne-Billancourt,48.8352,2.2409,France,FR,Île-de-France,minor,121583,121583
+Perpignan,42.6986,2.8956,France,FR,Occitanie,minor,119344,119344
+Metz,49.1203,6.1778,France,FR,Grand Est,minor,118489,118489
+Besançon,47.24,6.02,France,FR,Bourgogne-Franche-Comté,minor,118258,118258
+Orléans,47.9025,1.909,France,FR,Centre-Val de Loire,admin,116269,116269
+Saint-Denis,48.9356,2.3539,France,FR,Île-de-France,minor,112852,112852
+Rouen,49.4428,1.0886,France,FR,Normandie,admin,112321,112321
+Montreuil,48.8611,2.4436,France,FR,Île-de-France,,111240,111240
+Argenteuil,48.95,2.25,France,FR,Île-de-France,minor,111038,111038
+Mulhouse,47.75,7.34,France,FR,Grand Est,minor,108942,108312
+Caen,49.18,-0.37,France,FR,Normandie,minor,106230,106230
+Nancy,48.6936,6.1846,France,FR,Grand Est,minor,105058,105058
+Roubaix,50.6901,3.1817,France,FR,Hauts-de-France,,98828,98828
+Tourcoing,50.7239,3.1612,France,FR,Hauts-de-France,,98656,98656
+Nanterre,48.8988,2.1969,France,FR,Île-de-France,minor,96807,96277
+Vitry-sur-Seine,48.7875,2.3928,France,FR,Île-de-France,,95510,95510
+Créteil,48.7911,2.4628,France,FR,Île-de-France,minor,93246,93246
+Poitiers,46.58,0.34,France,FR,Nouvelle-Aquitaine,minor,89212,89212
+Aubervilliers,48.9131,2.3831,France,FR,Île-de-France,,88948,88948
+Aulnay-sous-Bois,48.9386,2.4906,France,FR,Île-de-France,,86969,86969
+Dunkerque,51.0383,2.3775,France,FR,Hauts-de-France,minor,86865,86279
+Colombes,48.9236,2.2522,France,FR,Île-de-France,,86534,86534
+Versailles,48.8053,2.135,France,FR,Île-de-France,minor,85205,84808
+Courbevoic,48.8978,2.2531,France,FR,Île-de-France,,82198,81558
+Rueil-Malmaison,48.876,2.181,France,FR,Île-de-France,,78317,78317
+La Rochelle,46.16,-1.15,France,FR,Nouvelle-Aquitaine,minor,77205,77205
+Champigny-sur-Marne,48.8172,2.5156,France,FR,Île-de-France,,77039,76990
+Pau,43.3,-0.37,France,FR,Nouvelle-Aquitaine,minor,76275,75627
+Saint-Maur-des-Fossés,48.7994,2.4997,France,FR,Île-de-France,,75298,74976
+Cannes,43.5513,7.0128,France,FR,Provence-Alpes-Côte d’Azur,,74545,74545
+Antibes,43.5808,7.1239,France,FR,Provence-Alpes-Côte d’Azur,,73438,73438
+Calais,50.9481,1.8564,France,FR,Hauts-de-France,minor,72929,72509
+Drancy,48.93,2.45,France,FR,Île-de-France,,72376,72376
+Mérignac,44.8386,-0.6436,France,FR,Nouvelle-Aquitaine,,72197,72197
+Saint-Nazaire,47.2736,-2.2139,France,FR,Pays de la Loire,minor,71394,71394
+Ajaccio,41.9267,8.7369,France,FR,Corsica,admin,71361,71361
+Issy-les-Moulineaux,48.8239,2.27,France,FR,Île-de-France,,68260,67981
+Noisy-le-Grand,48.8478,2.5528,France,FR,Île-de-France,,68126,67871
+Vénissieux,45.6978,4.8867,France,FR,Auvergne-Rhône-Alpes,,67285,67285
+Cergy,49.0361,2.0631,France,FR,Île-de-France,minor,66322,65911
+Levallois-Perret,48.895,2.2872,France,FR,Île-de-France,,66082,66082
+Pessac,44.8067,-0.6311,France,FR,Nouvelle-Aquitaine,,65245,65245
+Valence,44.9333,4.8917,France,FR,Auvergne-Rhône-Alpes,minor,64749,64749
+Ivry-sur-Seine,48.8078,2.3747,France,FR,Île-de-France,,63748,63748
+Clichy,48.9044,2.3064,France,FR,Île-de-France,,63089,63089
+La Seyne-sur-Mer,43.1,5.883,France,FR,Provence-Alpes-Côte d’Azur,,62987,62987
+Antony,48.7539,2.2975,France,FR,Île-de-France,minor,62858,62760
+Troyes,48.2997,4.0792,France,FR,Grand Est,minor,61996,61957
+Cherbourg,49.6333,-1.6,France,FR,Normandie,minor,60991,25370
+Neuilly-sur-Seine,48.8881,2.2686,France,FR,Île-de-France,,59940,59599
+Pantin,48.8966,2.4017,France,FR,Île-de-France,,59846,59846
+Sarcelles,48.9956,2.3808,France,FR,Île-de-France,minor,59196,59196
+Chambéry,45.57,5.9118,France,FR,Auvergne-Rhône-Alpes,minor,58917,58917
+Bellevue,48.871,2.385,France,FR,Île-de-France,,57699,57699
+Le Blanc-Mesnil,48.9387,2.4614,France,FR,Île-de-France,,57498,57498
+Lorient,47.75,-3.36,France,FR,Bretagne,minor,57246,57246
+Beauvais,49.4303,2.0952,France,FR,Hauts-de-France,minor,57071,57071
+Maisons-Alfort,48.8058,2.4378,France,FR,Île-de-France,,56483,56483
+Meaux,48.9603,2.8883,France,FR,Île-de-France,minor,55750,55750
+Villejuif,48.7919,2.3636,France,FR,Île-de-France,,55208,55208
+Chelles,48.8833,2.6,France,FR,Île-de-France,,55154,55154
+Épinay-sur-Seine,48.9553,2.3092,France,FR,Île-de-France,,54771,54611
+Bondy,48.9022,2.4828,France,FR,Île-de-France,,54587,54587
+Bobigny,48.9106,2.4397,France,FR,Île-de-France,minor,54363,54363
+Saint-Quentin,49.8486,3.2864,France,FR,Hauts-de-France,minor,53856,53570
+Vannes,47.6559,-2.7603,France,FR,Bretagne,minor,53719,53719
+Évry,48.6239,2.4294,France,FR,Île-de-France,minor,53641,53641
+Clamart,48.8014,2.2628,France,FR,Île-de-France,,52926,52925
+Vaulx-en-Velin,45.7768,4.9186,France,FR,Auvergne-Rhône-Alpes,,52795,52795
+Sartrouville,48.9372,2.1644,France,FR,Île-de-France,,52774,52774
+Fontenay-sous-Bois,48.8517,2.4772,France,FR,Île-de-France,,52256,52008
+Cagnes-sur-Mer,43.6644,7.1489,France,FR,Provence-Alpes-Côte d’Azur,,52178,52178
+Bayonne,43.49,-1.48,France,FR,Nouvelle-Aquitaine,minor,51894,51894
+Sevran,48.9333,2.5333,France,FR,Île-de-France,,51734,51734
+Corbeil-Essonnes,48.6139,2.482,France,FR,Île-de-France,,51234,51234
+Saint-Ouen,48.9123,2.3342,France,FR,Île-de-France,,50697,50697
+Massy,48.7309,2.2713,France,FR,Île-de-France,,50644,50644
+Vincennes,48.8478,2.4392,France,FR,Île-de-France,,49788,49788
+Laval,48.0733,-0.7689,France,FR,Pays de la Loire,minor,49733,49733
+Suresnes,48.87,2.22,France,FR,Île-de-France,,49311,49311
+Montrouge,48.8172,2.3219,France,FR,Île-de-France,,48734,48352
+Gennevilliers,48.9333,2.3,France,FR,Île-de-France,,48530,48530
+Bastia,42.7008,9.4503,France,FR,Corsica,,48503,48503
+Saint-Herblain,47.2122,-1.6497,France,FR,Pays de la Loire,,47415,47415
+Belfort,47.64,6.85,France,FR,Bourgogne-Franche-Comté,minor,46954,46443
+Saint-Priest,45.6972,4.9447,France,FR,Auvergne-Rhône-Alpes,,46927,46927
+Évreux,49.02,1.15,France,FR,Normandie,minor,46707,46349
+Charleville-Mézières,49.7719,4.7161,France,FR,Grand Est,minor,46436,46436
+Choisy-le-Roi,48.763,2.409,France,FR,Île-de-France,,46154,46150
+Rosny-sous-Bois,48.8667,2.4833,France,FR,Île-de-France,,46043,46024
+Meudon,48.8123,2.2382,France,FR,Île-de-France,,45818,45818
+Livry-Gargan,48.9192,2.5361,France,FR,Île-de-France,,45692,45692
+Puteaux,48.885,2.2389,France,FR,Île-de-France,,45157,45157
+Chalon-sur-Saône,46.7806,4.8528,France,FR,Bourgogne-Franche-Comté,minor,45056,45056
+La Courneuve,48.9322,2.3967,France,FR,Île-de-France,,45053,45053
+Alfortville,48.805,2.4239,France,FR,Île-de-France,,44805,44805
+Noisy-le-Sec,48.8894,2.4503,France,FR,Île-de-France,,44463,44463
+Châlons-en-Champagne,48.9575,4.365,France,FR,Grand Est,minor,44379,44379
+Mantes-la-Jolie,48.9908,1.7172,France,FR,Île-de-France,minor,44227,43921
+Saint-Brieuc,48.5136,-2.7653,France,FR,Bretagne,minor,44170,43605
+Sète,43.4053,3.6975,France,FR,Occitanie,,43858,43858
+Talence,44.8,-0.584,France,FR,Nouvelle-Aquitaine,,43820,43820
+Châteauroux,46.8103,1.6911,France,FR,Centre-Val de Loire,minor,43442,43122
+Valenciennes,50.3581,3.5233,France,FR,Hauts-de-France,minor,43405,43229
+Caluire-et-Cuire,45.7953,4.8472,France,FR,Auvergne-Rhône-Alpes,,43294,43294
+Garges-lès-Gonesse,48.9728,2.4008,France,FR,Île-de-France,,43239,43239
+Rezé,47.1917,-1.5694,France,FR,Pays de la Loire,,42919,42919
+Tarbes,43.23,0.07,France,FR,Occitanie,minor,42758,42758
+Bron,45.7394,4.9139,France,FR,Auvergne-Rhône-Alpes,,42244,42244
+Le Cannet,43.5769,7.0194,France,FR,Provence-Alpes-Côte d’Azur,,41887,41887
+Alès,44.1281,4.0817,France,FR,Occitanie,minor,41837,41837
+Angoulême,45.65,0.16,France,FR,Nouvelle-Aquitaine,minor,41711,41603
+Arras,50.292,2.78,France,FR,Hauts-de-France,minor,41694,41694
+Bourg-en-Bresse,46.2056,5.2289,France,FR,Auvergne-Rhône-Alpes,minor,41248,41111
+Bagneux,48.7983,2.3137,France,FR,Île-de-France,,40936,40936
+Wattrelos,50.7,3.217,France,FR,Hauts-de-France,,40898,40898
+Melun,48.5406,2.66,France,FR,Île-de-France,minor,40844,40844
+Boulogne-sur-Mer,50.7264,1.6147,France,FR,Hauts-de-France,minor,40664,40251
+Colomiers,43.6139,1.3367,France,FR,Occitanie,,39968,39968
+Anglet,43.485,-1.5183,France,FR,Nouvelle-Aquitaine,,39719,39719
+Gagny,48.8833,2.5333,France,FR,Île-de-France,,39661,39661
+Douai,50.3714,3.08,France,FR,Hauts-de-France,minor,39634,39613
+Poissy,48.9294,2.0456,France,FR,Île-de-France,,39187,39187
+Stains,48.95,2.3833,France,FR,Île-de-France,,38666,38285
+Marcq-en-Baroeul,50.6711,3.0972,France,FR,Hauts-de-France,,38570,38486
+Chartres,48.456,1.484,France,FR,Centre-Val de Loire,minor,38534,38534
+Saint-Martin-d’Hères,45.1672,5.7653,France,FR,Auvergne-Rhône-Alpes,,38398,37935
+Villepinte,48.955,2.541,France,FR,Île-de-France,,37713,37713
+Franconville,48.9889,2.2314,France,FR,Île-de-France,,37394,37394
+Châtillon,48.8,2.29,France,FR,Île-de-France,,37010,36639
+Échirolles,45.1436,5.7183,France,FR,Auvergne-Rhône-Alpes,,36961,36932
+Villenave-d’Ornon,44.7806,-0.5658,France,FR,Nouvelle-Aquitaine,,36754,36754
+Savigny-sur-Orge,48.6797,2.3457,France,FR,Île-de-France,,36734,36577
+Annemasse,46.1958,6.2364,France,FR,Auvergne-Rhône-Alpes,,36582,36582
+Villefranche-sur-Saône,45.9833,4.7167,France,FR,Auvergne-Rhône-Alpes,minor,36291,36291
+Creil,49.2583,2.4833,France,FR,Hauts-de-France,,36169,36169
+Bagnolet,48.8692,2.4181,France,FR,Île-de-France,,36060,36060
+Sainte-Geneviève-des-Bois,48.6369,2.3403,France,FR,Île-de-France,,36015,35830
+Neuilly-sur-Marne,48.8537,2.549,France,FR,Île-de-France,,35907,35907
+Thonon-les-Bains,46.3627,6.475,France,FR,Auvergne-Rhône-Alpes,minor,35826,35826
+Athis-Mons,48.7074,2.3889,France,FR,Île-de-France,,35670,35670
+Conflans-Sainte-Honorine,48.9992,2.0983,France,FR,Île-de-France,,35656,35536
+Palaiseau,48.7145,2.2457,France,FR,Île-de-France,minor,35590,35236
+Montluçon,46.3408,2.6033,France,FR,Auvergne-Rhône-Alpes,minor,34938,34361
+Villeneuve-Saint-Georges,48.7325,2.4497,France,FR,Île-de-France,,34890,34890
+Meyzieu,45.7667,5.0036,France,FR,Auvergne-Rhône-Alpes,,34640,34640
+Châtenay-Malabry,48.7653,2.2781,France,FR,Île-de-France,,34170,34021
+Nogent-sur-Marne,48.8375,2.4833,France,FR,Île-de-France,minor,34042,34042
+Roanne,46.0367,4.0689,France,FR,Auvergne-Rhône-Alpes,minor,34004,33809
+Schiltigheim,48.6078,7.75,France,FR,Grand Est,,33993,33993
+Le Perreux-Sur-Marne,48.8422,2.5036,France,FR,Île-de-France,,33793,33588
+Nevers,46.9933,3.1572,France,FR,Bourgogne-Franche-Comté,minor,33279,33005
+Les Mureaux,48.9875,1.9172,France,FR,Île-de-France,,33203,33203
+Agen,44.2049,0.6212,France,FR,Nouvelle-Aquitaine,minor,33012,32602
+Houilles,48.9261,2.1892,France,FR,Île-de-France,,32801,32801
+Trappes,48.7775,2.0025,France,FR,Île-de-France,,32645,32645
+Montigny-le-Bretonneux,48.7711,2.0333,France,FR,Île-de-France,,32575,32282
+Cambrai,50.1767,3.2356,France,FR,Hauts-de-France,minor,32501,32176
+Pontoise,49.0516,2.1017,France,FR,Île-de-France,,32405,32405
+L’Haÿ-les-Roses,48.78,2.3374,France,FR,Île-de-France,minor,32071,32071
+Bezons,48.9261,2.2178,France,FR,Île-de-France,,31671,31671
+Lens,50.4322,2.8333,France,FR,Hauts-de-France,minor,31606,31461
+Vigneux-sur-Seine,48.7001,2.417,France,FR,Île-de-France,,31463,31394
+Goussainville,49.0325,2.4747,France,FR,Île-de-France,,31068,31068
+Plaisir,48.8183,1.9472,France,FR,Île-de-France,,31013,30950
+Malakoff,48.8169,2.2944,France,FR,Île-de-France,,30950,30950
+Cachan,48.7919,2.3319,France,FR,Île-de-France,,30884,30440
+Viry-Châtillon,48.6713,2.375,France,FR,Île-de-France,,30865,30865
+Pierrefitte-sur-Seine,48.9656,2.3614,France,FR,Île-de-France,,30861,30861
+Rillieux-la-Pape,45.8214,4.8983,France,FR,Auvergne-Rhône-Alpes,,30697,30697
+Thiais,48.765,2.3923,France,FR,Île-de-France,,30676,30676
+Bègles,44.8086,-0.5478,France,FR,Nouvelle-Aquitaine,,30642,30642
+Menton,43.775,7.5,France,FR,Provence-Alpes-Côte d’Azur,,30525,30525
+Aix-les-Bains,45.6885,5.9153,France,FR,Auvergne-Rhône-Alpes,,30463,30463
+Liévin,50.4228,2.7786,France,FR,Hauts-de-France,,30423,30112
+Villemomble,48.8833,2.5,France,FR,Île-de-France,,30405,30405
+Chatou,48.8897,2.1573,France,FR,Île-de-France,,30330,30153
+Romainville,48.884,2.435,France,FR,Île-de-France,,30087,30087
+Le Plessis-Robinson,48.7811,2.2633,France,FR,Île-de-France,,30061,30061
+Périgueux,45.1929,0.7217,France,FR,Nouvelle-Aquitaine,minor,30060,29896
+Charenton-le-Pont,48.8265,2.405,France,FR,Île-de-France,,30053,29882
+Saint-Cloud,48.84,2.22,France,FR,Île-de-France,,30038,30012
+Vandœuvre-lès-Nancy,48.6567,6.1683,France,FR,Grand Est,,30009,29942
+Savigny-le-Temple,48.5841,2.5832,France,FR,Île-de-France,,29987,29987
+Ris-Orangis,48.6537,2.4161,France,FR,Île-de-France,,29745,29745
+La Garenne-Colombes,48.9056,2.2445,France,FR,Île-de-France,,29642,29642
+Maubeuge,50.2775,3.9734,France,FR,Hauts-de-France,,29632,29589
+Guyancourt,48.7714,2.0739,France,FR,Île-de-France,,29471,29471
+Yerres,48.7171,2.4881,France,FR,Île-de-France,,29338,29318
+Saint-Laurent-du-Var,43.668,7.188,France,FR,Provence-Alpes-Côte d’Azur,,29169,29169
+Ermont,48.9922,2.2603,France,FR,Île-de-France,,29079,28939
+Sotteville-lès-Rouen,49.4092,1.09,France,FR,Normandie,,29068,29068
+Clichy-sous-Bois,48.9102,2.5532,France,FR,Île-de-France,,28992,28782
+Décines-Charpieu,45.7694,4.9594,France,FR,Auvergne-Rhône-Alpes,,28930,28930
+Villiers-sur-Marne,48.8275,2.5447,France,FR,Île-de-France,,28895,28895
+Bois-Colombes,48.9175,2.2683,France,FR,Île-de-France,,28841,28841
+Draveil,48.6852,2.408,France,FR,Île-de-France,,28741,28602
+Soissons,49.3817,3.3236,France,FR,Hauts-de-France,minor,28712,28712
+Fresnes,48.755,2.3221,France,FR,Île-de-France,,28710,28710
+Dieppe,49.92,1.08,France,FR,Normandie,minor,28561,28241
+Saint-Étienne-du-Rouvray,49.3786,1.105,France,FR,Normandie,,28500,28352
+Villiers-le-Bel,49.0094,2.3911,France,FR,Île-de-France,,28423,28423
+Grigny,48.6562,2.3849,France,FR,Île-de-France,,28265,28201
+Tournefeuille,43.5853,1.3442,France,FR,Occitanie,,28117,28117
+Lomme,50.6455,2.9876,France,FR,Hauts-de-France,,28006,28006
+Montfermeil,48.9,2.5667,France,FR,Île-de-France,,27928,27928
+Vanves,48.8208,2.2897,France,FR,Île-de-France,,27846,27846
+Limeil-Brévannes,48.7464,2.4883,France,FR,Île-de-France,,27833,27833
+Le Chesnay,48.8203,2.1303,France,FR,Île-de-France,,27683,27683
+Saint-Sébastien-sur-Loire,47.2081,-1.5014,France,FR,Pays de la Loire,,27493,27493
+Lambersart,50.65,3.025,France,FR,Hauts-de-France,,27415,27400
+Brétigny-sur-Orge,48.6114,2.3059,France,FR,Île-de-France,,27412,27412
+Vallauris,43.5805,7.0538,France,FR,Provence-Alpes-Côte d’Azur,,27364,27364
+Sucy-en-Brie,48.7697,2.5228,France,FR,Île-de-France,,27157,27157
+Taverny,49.0264,2.2275,France,FR,Île-de-France,,26872,26872
+Bussy-Saint-Georges,48.8422,2.6983,France,FR,Île-de-France,,26806,26597
+Oullins,45.715,4.8083,France,FR,Auvergne-Rhône-Alpes,,26583,26553
+Villeparisis,48.9503,2.6025,France,FR,Île-de-France,,26580,26580
+Sannois,48.9722,2.2578,France,FR,Île-de-France,,26565,26565
+Le Grand-Quevilly,49.4072,1.0531,France,FR,Normandie,,25963,25963
+Alençon,48.4306,0.0931,France,FR,Normandie,minor,25870,25870
+Montbéliard,47.51,6.8,France,FR,Bourgogne-Franche-Comté,minor,25809,25806
+Biarritz,43.48,-1.56,France,FR,Nouvelle-Aquitaine,,25787,25787
+Gradignan,44.7725,-0.6156,France,FR,Nouvelle-Aquitaine,,25694,25694
+Champs-Sur-Marne,48.8529,2.6027,France,FR,Île-de-France,,25654,25654
+Élancourt,48.7847,1.9589,France,FR,Île-de-France,,25624,25624
+Fontenay-aux-Roses,48.7893,2.2888,France,FR,Île-de-France,,25531,25531
+Blagnac,43.6364,1.3906,France,FR,Occitanie,,25525,25525
+La Garde,43.1256,6.0108,France,FR,Provence-Alpes-Côte d’Azur,,25505,25505
+Cenon,44.8578,-0.5317,France,FR,Nouvelle-Aquitaine,,25496,25496
+Cormeilles-en-Parisis,48.9739,2.2014,France,FR,Île-de-France,,25406,25406
+Brunoy,48.6979,2.5044,France,FR,Île-de-France,,25354,25330
+Eaubonne,48.9922,2.2806,France,FR,Île-de-France,,25335,25335
+Béthune,50.5303,2.6408,France,FR,Hauts-de-France,minor,25193,25039
+Vichy,46.1278,3.4267,France,FR,Auvergne-Rhône-Alpes,minor,24980,24980
+Le Kremlin-Bicêtre,48.81,2.3581,France,FR,Île-de-France,,24971,24971
+Armentières,50.6881,2.8811,France,FR,Hauts-de-France,,24909,24909
+Saint-Ouen-l’Aumône,49.0447,2.1111,France,FR,Île-de-France,,24674,24674
+Orly,48.7439,2.3928,France,FR,Île-de-France,,24627,24627
+Eysines,44.8853,-0.65,France,FR,Nouvelle-Aquitaine,,24488,24488
+Rodez,44.3506,2.575,France,FR,Occitanie,minor,24475,24475
+Villeneuve-la-Garenne,48.9372,2.3278,France,FR,Île-de-France,,24097,24097
+La Valette-du-Var,43.1383,5.9831,France,FR,Provence-Alpes-Côte d’Azur,,24087,24087
+Les Pavillons-sous-Bois,48.9,2.5,France,FR,Île-de-France,,23960,23898
+Le Bouscat,44.8651,-0.5996,France,FR,Nouvelle-Aquitaine,,23924,23890
+Montgeron,48.7039,2.4605,France,FR,Île-de-France,,23775,23760
+Maisons-Laffitte,48.9469,2.1456,France,FR,Île-de-France,,23611,23361
+Sèvres,48.8239,2.2117,France,FR,Île-de-France,,23463,23463
+Les Lilas,48.88,2.42,France,FR,Île-de-France,,23447,23447
+Fontaine,45.1939,5.6856,France,FR,Auvergne-Rhône-Alpes,,23211,23211
+Lormont,44.8792,-0.5217,France,FR,Nouvelle-Aquitaine,,23181,23181
+Vélizy-Villacoublay,48.7834,2.1834,France,FR,Île-de-France,,23092,23092
+Loos,50.6128,3.0144,France,FR,Hauts-de-France,,22866,22866
+Roissy-en-Brie,48.7906,2.6519,France,FR,Île-de-France,,22851,22851
+Hérouville-Saint-Clair,49.2044,-0.3253,France,FR,Normandie,,22638,22555
+Castelnau-le-Lez,43.6369,3.9019,France,FR,Occitanie,,22534,22534
+Tassin-la-Demi-Lune,45.764,4.78,France,FR,Auvergne-Rhône-Alpes,,22403,22286
+Saint-Mandé,48.8422,2.4186,France,FR,Île-de-France,,22377,22377
+Torcy,48.8502,2.6508,France,FR,Île-de-France,minor,22361,22030
+Le Petit-Quevilly,49.4311,1.0539,France,FR,Normandie,,22291,22000
+Dammarie-lè-Lys,48.5177,2.6402,France,FR,Île-de-France,,22177,22128
+Sainte-Foy-lès-Lyon,45.73,4.8,France,FR,Auvergne-Rhône-Alpes,,22175,22175
+Deuil-la-Barre,48.9767,2.3272,France,FR,Île-de-France,,22165,22149
+La Madeleine,50.6558,3.071,France,FR,Hauts-de-France,,21968,21856
+Montigny-lès-Metz,49.1006,6.1539,France,FR,Grand Est,,21879,21879
+Combs-la-Ville,48.67,2.56,France,FR,Île-de-France,,21811,21627
+Arcueil,48.8075,2.3361,France,FR,Île-de-France,,21788,21788
+Montmorency,48.9906,2.3228,France,FR,Île-de-France,,21723,21723
+Villeneuve-le-Roi,48.7333,2.4167,France,FR,Île-de-France,,21679,21679
+Montigny-lès-Cormeilles,48.9944,2.1958,France,FR,Île-de-France,,21638,21528
+Achères,48.9602,2.0684,France,FR,Île-de-France,,21529,21529
+Gif-sur-Yvette,48.7018,2.1339,France,FR,Île-de-France,,21308,21007
+Saint-Jean-de-Braye,47.9128,1.9719,France,FR,Centre-Val de Loire,,21288,21288
+Mons-en-Baroeul,50.6369,3.1103,France,FR,Hauts-de-France,,21277,21277
+Longjumeau,48.6943,2.2958,France,FR,Île-de-France,,21269,21269
+Montereau-faut-Yonne,48.3853,2.9508,France,FR,Île-de-France,,21229,21229
+Croix,50.6781,3.1508,France,FR,Hauts-de-France,,21087,20881
+Le Mée-sur-Seine,48.5333,2.6289,France,FR,Île-de-France,,21071,20917
+Fleury-les-Aubrais,47.9312,1.921,France,FR,Centre-Val de Loire,,21070,21010
+Bourg-la-Reine,48.7796,2.3151,France,FR,Île-de-France,,21050,21050
+Saint-Genis-Laval,45.696,4.793,France,FR,Auvergne-Rhône-Alpes,,21019,20914
+Coudekerque-Branche,51.0253,2.3917,France,FR,Hauts-de-France,,20925,20851
+Neuilly-Plaisance,48.8619,2.5064,France,FR,Île-de-France,,20915,20878
+Saint-Gratien,48.9719,2.2828,France,FR,Île-de-France,,20895,20895
+Wasquehal,50.6694,3.1308,France,FR,Hauts-de-France,,20860,20860
+La Celle-Saint-Cloud,48.8411,2.1344,France,FR,Île-de-France,,20830,20692
+Mantes-la-Ville,48.975,1.7117,France,FR,Île-de-France,,20818,20818
+Halluin,50.7836,3.1256,France,FR,Hauts-de-France,,20808,20743
+Nogent-sur-Oise,49.2756,2.4683,France,FR,Hauts-de-France,,20780,20780
+Chaville,48.8086,2.1886,France,FR,Île-de-France,,20771,20771
+Morsang-sur-Orge,48.6618,2.3461,France,FR,Île-de-France,,20619,20124
+Fougères,48.3525,-1.1986,France,FR,Bretagne,minor,20595,20595
+Saint-Michel-sur-Orge,48.6325,2.3028,France,FR,Île-de-France,,20484,20484
+Saint-Pol-sur-Mer,51.0314,2.3439,France,FR,Hauts-de-France,,20479,20479
+Lisieux,49.15,0.23,France,FR,Normandie,minor,20171,20038
+Le Plessis-Trévise,48.8111,2.5717,France,FR,Île-de-France,,20025,19829
+Sceaux,48.7786,2.2906,France,FR,Île-de-France,,20004,20004
+Chevilly-Larue,48.7664,2.3533,France,FR,Île-de-France,,19988,19988
+Denain,50.3286,3.395,France,FR,Hauts-de-France,,19933,19877
+Chilly-Mazarin,48.7025,2.3125,France,FR,Île-de-France,,19858,19822
+Lingolsheim,48.5575,7.6831,France,FR,Grand Est,,19797,19797
+Saint-Cyr-l’École,48.8003,2.0625,France,FR,Île-de-France,,19792,19792
+Joinville-le-Pont,48.8214,2.4728,France,FR,Île-de-France,,19652,19652
+Saint-Fons,45.7086,4.8533,France,FR,Auvergne-Rhône-Alpes,,19617,19617
+Moulins,46.5647,3.3325,France,FR,Auvergne-Rhône-Alpes,minor,19563,19246
+Ronchin,50.6047,3.0878,France,FR,Hauts-de-France,,19477,19294
+Mont-Saint-Aignan,49.4625,1.0872,France,FR,Normandie,,19357,19357
+Cugnaux,43.5378,1.3436,France,FR,Occitanie,,19344,19344
+Écully,45.7744,4.7775,France,FR,Auvergne-Rhône-Alpes,,18948,18948
+Villefontaine,45.6133,5.1486,France,FR,Auvergne-Rhône-Alpes,,18835,18835
+Gentilly,48.8133,2.3444,France,FR,Île-de-France,,18815,18815
+Hem,50.6553,3.1878,France,FR,Hauts-de-France,,18636,18636
+Hellemmes-Lille,50.6283,3.11,France,FR,Hauts-de-France,,18437,18437
+Cran-Gévrier,45.9036,6.1039,France,FR,Auvergne-Rhône-Alpes,,18330,18330
+Éragny,49.0172,2.0914,France,FR,Île-de-France,,18296,18296
+Soisy-sous-Montmorency,48.9878,2.2997,France,FR,Île-de-France,,18243,18033
+Fâches-Thumesnil,50.5989,3.0736,France,FR,Hauts-de-France,,18191,18191
+Floirac,44.8364,-0.5258,France,FR,Nouvelle-Aquitaine,,18181,18181
+Chennevières-sur-Marne,48.7983,2.5339,France,FR,Île-de-France,,18142,18039
+Bonneuil-sur-Marne,48.7742,2.4875,France,FR,Île-de-France,,18062,18062
+Maurepas,48.7628,1.9456,France,FR,Île-de-France,,18019,17683
+Garches,48.8456,2.1869,France,FR,Île-de-France,,17795,17795
+Meylan,45.2086,5.7794,France,FR,Auvergne-Rhône-Alpes,,17786,17786
+Les Clayes-sous-Bois,48.8206,1.9836,France,FR,Île-de-France,,17560,17487
+Bry-sur-Marne,48.8411,2.5222,France,FR,Île-de-France,,17525,17525
+Le Pré-Saint-Gervais,48.885,2.4039,France,FR,Île-de-France,,17485,17351
+Juvisy-sur-Orge,48.6883,2.3775,France,FR,Île-de-France,,17454,17454
+Bischheim,48.6139,7.7519,France,FR,Grand Est,,17353,17353
+Lons-le-Saunier,46.6744,5.5539,France,FR,Bourgogne-Franche-Comté,minor,17320,17189
+Chamalières,45.7736,3.0669,France,FR,Auvergne-Rhône-Alpes,,17276,17276
+Le Pontet,43.9642,4.86,France,FR,Provence-Alpes-Côte d’Azur,,17273,17041
+Limay,48.9933,1.7358,France,FR,Île-de-France,,17147,17136
+Cluses,46.0603,6.5786,France,FR,Auvergne-Rhône-Alpes,,16996,16918
+Firminy,45.3881,4.2872,France,FR,Auvergne-Rhône-Alpes,,16981,16901
+Boissy-Saint-Léger,48.7503,2.5097,France,FR,Île-de-France,,16977,16977
+Hendaye,43.3586,-1.7744,France,FR,Nouvelle-Aquitaine,,16967,16967
+Octeville,49.6269,-1.6431,France,FR,Normandie,,16948,16948
+Viroflay,48.8,2.1722,France,FR,Île-de-France,,16752,16752
+Jouy-le-Moutier,49.0108,2.0386,France,FR,Île-de-France,,16741,16741
+Port-de-Bouc,43.405,4.9886,France,FR,Provence-Alpes-Côte d’Azur,,16651,16651
+Carrières-sous-Poissy,48.9478,2.0386,France,FR,Île-de-France,,16641,16641
+L’Isle-d’Abeau,45.6194,5.2331,France,FR,Auvergne-Rhône-Alpes,,16584,16584
+Vauréal,49.03,2.0214,France,FR,Île-de-France,,16575,16456
+Saint-Jean-de-la-Ruelle,47.9131,1.8733,France,FR,Centre-Val de Loire,,16445,16411
+Marly-le-Roi,48.8669,2.0942,France,FR,Île-de-France,,16385,16385
+Le Bourget,48.9344,2.4244,France,FR,Île-de-France,,16139,15905
+Saint-Leu-la-Forêt,49.0169,2.2464,France,FR,Île-de-France,,16130,16130
+Verneuil-sur-Seine,48.9797,1.9739,France,FR,Île-de-France,,15982,15980
+Noisiel,48.8547,2.6289,France,FR,Île-de-France,,15960,15960
+Le Pecq,48.8967,2.1061,France,FR,Île-de-France,,15949,15716
+Saint-Égrève,45.2317,5.6831,France,FR,Auvergne-Rhône-Alpes,,15944,15944
+Le Vésinet,48.8939,2.1322,France,FR,Île-de-France,,15943,15943
+Petite-Synthe,51.0231,2.3528,France,FR,Hauts-de-France,,15911,15911
+Saint-Julien-en-Genevois,46.1442,6.0842,France,FR,Auvergne-Rhône-Alpes,minor,15873,15873
+Orsay,48.6981,2.1875,France,FR,Île-de-France,,15844,15503
+Domont,49.0275,2.3267,France,FR,Île-de-France,,15504,15504
+Lucé,48.4383,1.465,France,FR,Centre-Val de Loire,,15435,15403
+Bois-d’Arcy,48.8014,2.0317,France,FR,Île-de-France,,15325,15325
+Carrières-sur-Seine,48.9108,2.2889,France,FR,Île-de-France,,15178,15178
+Rive-de-Gier,45.5294,4.6169,France,FR,Auvergne-Rhône-Alpes,,15105,14978
+Wattignies,50.585,3.0431,France,FR,Hauts-de-France,,15075,15075
+Saint-Brice-sous-Forêt,48.9986,2.3569,France,FR,Île-de-France,,15043,15043
+Montesson,48.9086,2.1494,France,FR,Île-de-France,,15013,14991
+Montargis,47.9969,2.7325,France,FR,Centre-Val de Loire,minor,14976,14976
+Vesoul,47.6222,6.1553,France,FR,Bourgogne-Franche-Comté,minor,14973,14914
+Verrières-le-Buisson,48.7475,2.2628,France,FR,Île-de-France,,14941,14888
+Francheville,45.7364,4.7636,France,FR,Auvergne-Rhône-Alpes,,14906,14906
+Valenton,48.745,2.4672,France,FR,Île-de-France,,14883,14883
+Illzach,47.7822,7.3481,France,FR,Grand Est,,14784,14784
+Haubourdin,50.6092,2.9869,France,FR,Hauts-de-France,,14775,14725
+Longwy,49.5197,5.7606,France,FR,Grand Est,,14774,14774
+Le Raincy,48.8992,2.5231,France,FR,Île-de-France,minor,14708,14569
+Ramonville-Saint-Agne,43.5461,1.4756,France,FR,Occitanie,,14600,14600
+Bois-Guillaume,49.47,1.1194,France,FR,Normandie,,14592,14592
+Villers-lès-Nancy,48.6731,6.1547,France,FR,Grand Est,,14558,14525
+Les Sables-d’Olonne,46.4972,-1.7833,France,FR,Pays de la Loire,minor,14545,14545
+Montmagny,48.9736,2.3458,France,FR,Île-de-France,,14523,14523
+Dinan,48.4556,-2.0503,France,FR,Bretagne,minor,14407,14407
+Lognes,48.8361,2.6278,France,FR,Île-de-France,,14353,14353
+Arnouville-lès-Gonesse,48.9872,2.4167,France,FR,Île-de-France,,14329,14255
+Chenôve,47.2911,5.0072,France,FR,Bourgogne-Franche-Comté,,14216,14025
+Castanet-Tolosan,43.5156,1.4981,France,FR,Occitanie,,14213,14213
+Saint-Maurice,48.8183,2.4347,France,FR,Île-de-France,,14189,14189
+Auray,47.6678,-2.9825,France,FR,Bretagne,,14141,14141
+Fleury-Mérogis,48.6294,2.3614,France,FR,Île-de-France,,13917,13641
+Persan,49.1533,2.2711,France,FR,Île-de-France,,13734,13734
+Avon,48.4089,2.725,France,FR,Île-de-France,,13662,13419
+Lys-lès-Lannoy,50.6714,3.2144,France,FR,Hauts-de-France,,13643,13643
+Beausoleil,43.7419,7.4236,France,FR,Provence-Alpes-Côte d’Azur,,13576,13358
+Outreau,50.7039,1.5939,France,FR,Hauts-de-France,,13575,13378
+Montévrain,48.8753,2.7456,France,FR,Île-de-France,,13517,13517
+Fontenay-le-Fleury,48.8136,2.0486,France,FR,Île-de-France,,13494,13466
+Courcouronnes,48.6239,2.4294,France,FR,Île-de-France,,13490,13490
+Morangis,48.7064,2.3347,France,FR,Île-de-France,,13453,13424
+Vaires-sur-Marne,48.8742,2.6381,France,FR,Île-de-France,,13383,13368
+Audincourt,47.4828,6.8397,France,FR,Bourgogne-Franche-Comté,,13341,13341
+Anzin,50.3714,3.5044,France,FR,Hauts-de-France,,13329,13329
+Andrésy,48.9808,2.0583,France,FR,Île-de-France,,13302,13302
+Kingersheim,47.7914,7.3381,France,FR,Grand Est,,13267,13263
+Mouvaux,50.7033,3.1406,France,FR,Hauts-de-France,,13173,13121
+Saint-André,50.6603,3.0439,France,FR,Hauts-de-France,,13151,13151
+Bayeux,49.2786,-0.7039,France,FR,Normandie,minor,13017,12682
+Ostwald,48.5511,7.7136,France,FR,Grand Est,,12985,12985
+Billère,43.3025,-0.3972,France,FR,Nouvelle-Aquitaine,,12793,12793
+Saint-André-les-Vergers,48.2797,4.0539,France,FR,Grand Est,,12784,12784
+Riedisheim,47.7483,7.3669,France,FR,Grand Est,,12660,12520
+Épinay-sous-Sénart,48.6931,2.5158,France,FR,Île-de-France,,12279,12266
+Bully-les-Mines,50.4419,2.7244,France,FR,Hauts-de-France,,12156,12156
+Marly,50.3489,3.5442,France,FR,Hauts-de-France,,12083,12083
+L’Union,43.6564,1.4844,France,FR,Occitanie,,11798,11798
+Villecresnes,48.7214,2.5342,France,FR,Île-de-France,,11779,11779
+Vitry-le-François,48.7247,4.5844,France,FR,Grand Est,minor,11743,11376
+Le Relecq-Kerhuon,48.4086,-4.3969,France,FR,Bretagne,,11717,11717
+Talant,47.3364,5.0056,France,FR,Bourgogne-Franche-Comté,,11713,11713
+Arcachon,44.6586,-1.1689,France,FR,Nouvelle-Aquitaine,minor,11630,11630
+Yvetot,49.6169,0.7531,France,FR,Normandie,,11627,11448
+Enghien-les-Bains,48.9697,2.3081,France,FR,Île-de-France,,11470,11470
+Stiring-Wendel,49.2,6.9292,France,FR,Grand Est,,11385,11178
+Arpajon,48.5903,2.2478,France,FR,Île-de-France,,11355,11355
+Méricourt,50.4022,2.8658,France,FR,Hauts-de-France,,11346,11267
+Bruay-sur-l’Escaut,50.3983,3.5394,France,FR,Hauts-de-France,,11311,11258
+Hœnheim,48.6242,7.7547,France,FR,Grand Est,,11304,11304
+Craponne,45.7453,4.7233,France,FR,Auvergne-Rhône-Alpes,,11248,11248
+Ville-d’Avray,48.8261,2.1933,France,FR,Île-de-France,,11225,11225
+Épinay-sur-Orge,48.6739,2.3272,France,FR,Île-de-France,,11184,11184
+Dugny,48.9536,2.4164,France,FR,Île-de-France,,11073,11073
+Saint-Jean,43.6653,1.505,France,FR,Occitanie,,11017,11017
+Saint-Germain-lès-Arpajon,48.5953,2.2556,France,FR,Île-de-France,,10983,10983
+Voisins-le-Bretonneux,48.7583,2.0508,France,FR,Île-de-France,,10921,10835
+Cesson,48.5658,2.6011,France,FR,Île-de-France,,10833,10833
+Marquette-lès-Lille,50.6758,3.0661,France,FR,Hauts-de-France,,10798,10798
+Beaumont,45.7517,3.0831,France,FR,Auvergne-Rhône-Alpes,,10793,10664
+Maromme,49.4819,1.0419,France,FR,Normandie,,10730,10663
+Le Pont-de-Claix,45.1231,5.6981,France,FR,Auvergne-Rhône-Alpes,,10716,10716
+Déville-lès-Rouen,49.4697,1.0497,France,FR,Normandie,,10654,10654
+Pierre-Bénite,45.7036,4.8242,France,FR,Auvergne-Rhône-Alpes,,10461,10397
+Thorigny-sur-Marne,48.8788,2.7075,France,FR,Île-de-France,,10454,10454
+Chanteloup-les-Vignes,48.9783,2.0308,France,FR,Île-de-France,,10426,10426
+Ormesson-sur-Marne,48.7858,2.5383,France,FR,Île-de-France,,10419,10419
+Gaillard,46.185,6.2075,France,FR,Auvergne-Rhône-Alpes,,10419,10071
+Auchel,50.5083,2.4736,France,FR,Hauts-de-France,,10399,10272
+Montigny-en-Gohelle,50.4278,2.9297,France,FR,Hauts-de-France,,10315,10180
+Tinqueux,49.25,3.9908,France,FR,Grand Est,,10294,10294
+Avranches,48.6844,-1.3569,France,FR,Normandie,minor,10264,10264
+Neuville-en-Ferrain,50.7467,3.1581,France,FR,Hauts-de-France,,10264,10264
+Clermont,49.3789,2.4125,France,FR,Hauts-de-France,minor,10183,10163
+Caudebec-lès-Elbeuf,49.2808,1.0211,France,FR,Normandie,,10156,9949
+Aniche,50.33,3.2511,France,FR,Hauts-de-France,,10146,10085
+Vernouillet,48.9722,1.9833,France,FR,Île-de-France,,10104,10104
+Villeneuve-Tolosane,43.5236,1.3417,France,FR,Occitanie,,10050,10050
+Bondoufle,48.6133,2.3806,France,FR,Île-de-France,,10046,10046
+Croissy-sur-Seine,48.8778,2.1422,France,FR,Île-de-France,,10031,10031
+Ferney-Voltaire,46.2558,6.1081,France,FR,Auvergne-Rhône-Alpes,,10026,10026
+Saint-Max,48.7011,6.2067,France,FR,Grand Est,,10019,10019
+Villerupt,49.4697,5.9286,France,FR,Grand Est,,10003,10003
+Oignies,50.4692,2.9936,France,FR,Hauts-de-France,,9993,9993
+Eybens,45.1486,5.7503,France,FR,Auvergne-Rhône-Alpes,,9980,9980
+Igny,48.7422,2.2261,France,FR,Île-de-France,,9917,9917
+Maxéville,48.7114,6.1631,France,FR,Grand Est,,9818,9818
+Fosses,49.0981,2.5067,France,FR,Île-de-France,,9791,9791
+Darnétal,49.4447,1.1511,France,FR,Normandie,,9788,9788
+Pfastatt,47.7689,7.3017,France,FR,Grand Est,,9723,9723
+Ézanville,49.0278,2.3608,France,FR,Île-de-France,,9719,9656
+Grigny,45.6083,4.7897,France,FR,Auvergne-Rhône-Alpes,,9706,9706
+Sallaumines,50.4197,2.8622,France,FR,Hauts-de-France,,9654,9594
+Neuville-lès-Dieppe,49.9267,1.1014,France,FR,Normandie,,9616,9616
+Bures-sur-Yvette,48.6967,2.1614,France,FR,Île-de-France,,9577,9408
+Beaumont-sur-Oise,49.1425,2.2864,France,FR,Île-de-France,,9555,9504
+Serris,48.8564,2.7861,France,FR,Île-de-France,,9494,9494
+Quincy-sous-Sénart,48.6711,2.5339,France,FR,Île-de-France,,9426,9426
+Leers,50.6817,3.2439,France,FR,Hauts-de-France,,9400,9378
+Crosne,48.7147,2.4611,France,FR,Île-de-France,,9369,9369
+Jarville-la-Malgrange,48.6694,6.2061,France,FR,Grand Est,,9354,9354
+Le Crès,43.6472,3.9392,France,FR,Occitanie,,9316,9310
+Hagondange,49.2542,6.1681,France,FR,Grand Est,,9287,9287
+Le Portel,50.7067,1.5733,France,FR,Hauts-de-France,,9157,9071
+Évian-les-Bains,46.4006,6.59,France,FR,Auvergne-Rhône-Alpes,,9108,9108
+Magny-le-Hongre,48.8631,2.8136,France,FR,Île-de-France,,9107,9107
+Ville-la-Grand,46.2022,6.2469,France,FR,Auvergne-Rhône-Alpes,,9050,9050
+Pérols,43.565,3.9506,France,FR,Occitanie,,9016,9016
+Aucamville,43.6686,1.4306,France,FR,Occitanie,,8968,8968
+Tomblaine,48.6856,6.2117,France,FR,Grand Est,,8872,8856
+Fontaine-lès-Dijon,47.3433,5.0192,France,FR,Bourgogne-Franche-Comté,,8844,8800
+Essey-lès-Nancy,48.7058,6.2222,France,FR,Grand Est,,8833,8833
+Bougival,48.865,2.1394,France,FR,Île-de-France,,8795,8790
+Wingles,50.4942,2.8553,France,FR,Hauts-de-France,,8756,8756
+Beauchamp,49.0139,2.19,France,FR,Île-de-France,,8687,8687
+Vaucresson,48.8425,2.1528,France,FR,Île-de-France,,8683,8683
+Boucau,43.5236,-1.4867,France,FR,Nouvelle-Aquitaine,,8627,8627
+Groslay,48.9867,2.3444,France,FR,Île-de-France,,8545,8509
+Pérenchies,50.6681,2.9725,France,FR,Hauts-de-France,,8542,8542
+Le Plessis-Bouchard,49.0028,2.2367,France,FR,Île-de-France,,8514,8514
+La Salvetat-Saint-Gilles,43.5761,1.2714,France,FR,Occitanie,,8474,8474
+Saint-Aubin-lès-Elbeuf,49.3003,1.0111,France,FR,Normandie,,8429,8429
+Harfleur,49.5067,0.1981,France,FR,Normandie,,8395,8349
+Bihorel,49.4547,1.1167,France,FR,Normandie,,8331,8264
+Meythet,45.9153,6.0928,France,FR,Auvergne-Rhône-Alpes,,8327,8327
+Terrenoire,45.4343,4.4377,France,FR,Auvergne-Rhône-Alpes,,8317,8317
+L’Île-Saint-Denis,48.9358,2.3397,France,FR,Île-de-France,,8288,8288
+Carbon-Blanc,44.8947,-0.5064,France,FR,Nouvelle-Aquitaine,,8254,8254
+Billy-Montigny,50.4181,2.9119,France,FR,Hauts-de-France,,8177,8177
+La Tour-du-Pin,45.5658,5.445,France,FR,Auvergne-Rhône-Alpes,minor,8167,8167
+Courcelles-les-Lens,50.4181,3.0181,France,FR,Hauts-de-France,,8104,8104
+La Ville-du-Bois,48.6606,2.2692,France,FR,Île-de-France,,8010,8010
+Souffelweyersheim,48.635,7.7408,France,FR,Grand Est,,8005,7994
+Boussy-Saint-Antoine,48.6908,2.5325,France,FR,Île-de-France,,7983,7983
+Le Mesnil-Esnard,49.4108,1.1419,France,FR,Normandie,,7927,7886
+Cappelle-la-Grande,50.9983,2.3642,France,FR,Hauts-de-France,,7920,7920
+Talange,49.2367,6.1744,France,FR,Grand Est,,7781,7781
+Coulaines,48.0267,0.2042,France,FR,Pays de la Loire,,7779,7779
+Montlhéry,48.6386,2.2722,France,FR,Île-de-France,,7681,7681
+Saint-Germain-lès-Corbeil,48.6206,2.4892,France,FR,Île-de-France,,7488,7488
+Waziers,50.3872,3.1131,France,FR,Hauts-de-France,,7427,7402
+Sainte-Adresse,49.5064,0.0833,France,FR,Normandie,,7349,7317
+Huningue,47.5914,7.5831,France,FR,Grand Est,,7261,7261
+Vaujours,48.9339,2.5719,France,FR,Île-de-France,,7181,7181
+Terville,49.3444,6.1342,France,FR,Grand Est,,7134,7134
+Guingamp,48.5625,-3.1511,France,FR,Bretagne,minor,7069,7069
+Fontaines-sur-Saône,45.8358,4.845,France,FR,Auvergne-Rhône-Alpes,,7068,7066
+Villemoisson-sur-Orge,48.6653,2.3308,France,FR,Île-de-France,,7058,7058
+Liancourt,49.3308,2.4653,France,FR,Hauts-de-France,,7010,7010
+Beauzelle,43.6653,1.3775,France,FR,Occitanie,,6973,6973
+Gournay-sur-Marne,48.8597,2.5764,France,FR,Île-de-France,,6878,6844
+Grenay,50.4522,2.7431,France,FR,Hauts-de-France,,6851,6799
+Beuvrages,50.3858,3.5056,France,FR,Hauts-de-France,,6821,6809
+Jacou,43.6608,3.9103,France,FR,Occitanie,,6808,6808
+Courtry,48.9175,2.6031,France,FR,Île-de-France,,6698,6698
+Luisant,48.4317,1.4764,France,FR,Centre-Val de Loire,,6689,6689
+Neuves-Maisons,48.6161,6.1036,France,FR,Grand Est,,6653,6633
+Noyelles-sous-Lens,50.4306,2.8728,France,FR,Hauts-de-France,,6646,6632
+Bouffémont,49.0433,2.2992,France,FR,Île-de-France,,6578,6578
+Jœuf,49.2297,6.0089,France,FR,Grand Est,,6570,6570
+Carnoux-en-Provence,43.2564,5.5644,France,FR,Provence-Alpes-Côte d’Azur,,6564,6498
+La Verrière,48.7586,1.9622,France,FR,Île-de-France,,6551,6386
+La Bassée,50.5336,2.8072,France,FR,Hauts-de-France,,6545,6509
+La Mulatière,45.7281,4.8122,France,FR,Auvergne-Rhône-Alpes,,6524,6524
+La Penne-sur-Huveaune,43.2806,5.5158,France,FR,Provence-Alpes-Côte d’Azur,,6519,6519
+Sathonay-Camp,45.8247,4.8744,France,FR,Auvergne-Rhône-Alpes,,6497,6497
+Bonsecours,49.4278,1.1278,France,FR,Normandie,,6479,6479
+Fouquières-lès-Lens,50.4286,2.9128,France,FR,Hauts-de-France,,6434,6434
+L’Arbresle,45.8356,4.6169,France,FR,Auvergne-Rhône-Alpes,,6418,6410
+Esbly,48.9031,2.8125,France,FR,Île-de-France,,6404,6404
+Égly,48.5806,2.2239,France,FR,Île-de-France,,6322,6322
+Le Mesnil-le-Roi,48.9281,2.1225,France,FR,Île-de-France,,6292,6285
+La Montagne,47.19,-1.6839,France,FR,Pays de la Loire,,6290,6290
+Ambilly,46.195,6.2242,France,FR,Auvergne-Rhône-Alpes,,6261,6138
+Saint-Alban,43.6919,1.4147,France,FR,Occitanie,,6217,6217
+Magnanville,48.9672,1.6819,France,FR,Île-de-France,,6177,6177
+Saint-Priest-en-Jarez,45.4742,4.3781,France,FR,Auvergne-Rhône-Alpes,,6106,6106
+Pont-de-Chéruy,45.7506,5.1731,France,FR,Auvergne-Rhône-Alpes,,5980,5980
+Palavas-les-Flots,43.5294,3.9306,France,FR,Occitanie,,5903,5844
+Menucourt,49.0272,1.9814,France,FR,Île-de-France,,5902,5902
+Ablon-sur-Seine,48.7256,2.4211,France,FR,Île-de-France,,5852,5852
+Saintry-sur-Seine,48.5908,2.4969,France,FR,Île-de-France,,5797,5797
+Longueau,49.8703,2.3561,France,FR,Hauts-de-France,,5765,5765
+Champagne-au-Mont-d’Or,45.7947,4.7908,France,FR,Auvergne-Rhône-Alpes,,5748,5748
+Saint-André-de-la-Roche,43.74,7.2878,France,FR,Provence-Alpes-Côte d’Azur,,5695,5695
+Le Port-Marly,48.8792,2.1097,France,FR,Île-de-France,,5509,5481
+Heillecourt,48.6525,6.1942,France,FR,Grand Est,,5473,5403
+Loison-sous-Lens,50.4383,2.8683,France,FR,Hauts-de-France,,5379,5366
+Crégy-lès-Meaux,48.9786,2.8783,France,FR,Île-de-France,,5223,5223
+Montaigu,46.9728,-1.31,France,FR,Pays de la Loire,,5160,5160
+Grand-Fort-Philippe,50.9978,2.1092,France,FR,Hauts-de-France,,5130,5130
+Bassens,45.5811,5.9408,France,FR,Auvergne-Rhône-Alpes,,4785,4785
+Mandres-les-Roses,48.7022,2.5444,France,FR,Île-de-France,,4777,4777
+Saint-Nicolas,50.3028,2.7772,France,FR,Hauts-de-France,,4724,4687
+La Frette-sur-Seine,48.9742,2.1783,France,FR,Île-de-France,,4701,4701
+Nilvange,49.3422,6.05,France,FR,Grand Est,,4601,4515
+Villiers-sur-Orge,48.6578,2.3028,France,FR,Île-de-France,,4600,4600
+Cap-d’Ail,43.7211,7.4056,France,FR,Provence-Alpes-Côte d’Azur,,4529,4523
+Le Ban-Saint-Martin,49.1219,6.1506,France,FR,Grand Est,,4517,4517
+Leuville-sur-Orge,48.6169,2.2644,France,FR,Île-de-France,,4405,4378
+Avesnes-sur-Helpe,50.1236,3.9256,France,FR,Hauts-de-France,minor,4345,4195
+Valras-Plage,43.2469,3.2908,France,FR,Occitanie,,4223,4206
+Jacob-Bellecombette,45.5556,5.9136,France,FR,Auvergne-Rhône-Alpes,,4070,4047
+Ascq,50.6194,3.1597,France,FR,Hauts-de-France,,3999,3999
+Longeville-lès-Metz,49.1144,6.1353,France,FR,Grand Est,,3993,3955
+Lourches,50.3147,3.3553,France,FR,Hauts-de-France,,3959,3952
+Toufflers,50.6608,3.2297,France,FR,Hauts-de-France,,3911,3911
+Sochaux,47.5144,6.8314,France,FR,Bourgogne-Franche-Comté,,3889,3829
+Neuville-Saint-Rémy,50.1878,3.2222,France,FR,Hauts-de-France,,3792,3782
+Beaulieu-sur-Mer,43.7069,7.3314,France,FR,Provence-Alpes-Côte d’Azur,,3755,3755
+Mareil-Marly,48.8819,2.0767,France,FR,Île-de-France,,3677,3677
+Bergues,50.9686,2.4342,France,FR,Hauts-de-France,,3637,3600
+Fort-Mardyck,51.031,2.3061,France,FR,Hauts-de-France,,3426,3426
+Saint-Mammès,48.3867,2.8142,France,FR,Île-de-France,,3391,3391
+Neauphle-le-Château,48.8144,1.9022,France,FR,Île-de-France,,3385,3385
+Les Noës-près-Troyes,48.3025,4.0411,France,FR,Grand Est,,3281,3280
+Pont-à-Vendin,50.4736,2.8886,France,FR,Hauts-de-France,,3167,3134
+Rouelles,49.5208,0.1608,France,FR,Normandie,,3066,3066
+Paimbœuf,47.2875,-2.0317,France,FR,Pays de la Loire,,3056,3023
+Éleu-dit-Leauwette,50.4208,2.8111,France,FR,Hauts-de-France,,2880,2840
+Courchelettes,50.345,3.0592,France,FR,Hauts-de-France,,2842,2842
+Port-Louis,47.7067,-3.3533,France,FR,Bretagne,,2654,2654
+Sainte-Foy-la-Grande,44.8406,0.2172,France,FR,Nouvelle-Aquitaine,,2627,2627
+Tréguier,48.785,-3.2325,France,FR,Bretagne,,2416,2416
+Hesdin,50.3742,2.0367,France,FR,Hauts-de-France,,2219,2216
+Les Roches-de-Condrieu,45.4531,4.7678,France,FR,Auvergne-Rhône-Alpes,,1981,1981
+Neuf-Brisach,48.0181,7.5283,France,FR,Grand Est,,1963,1963
+Cravanche,47.6539,6.8325,France,FR,Bourgogne-Franche-Comté,,1959,1951
+Lannoy,50.6661,3.2106,France,FR,Hauts-de-France,,1819,1819
+Saint-Laurent-sur-Saône,46.3053,4.8394,France,FR,Auvergne-Rhône-Alpes,,1689,1688
+La Neuvillette-lès-Reims,49.289,4.0058,France,FR,Grand Est,,1567,1567
+Laleu,46.1689,-1.1994,France,FR,Nouvelle-Aquitaine,,1149,1149
+La Walck,48.8497,7.6108,France,FR,Grand Est,,1042,1042
+Châtelaudren,48.5422,-2.9711,France,FR,Bretagne,,1002,1002

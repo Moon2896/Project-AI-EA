@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <title>Pixi.js Visualization</title>
     <script src="https://pixijs.download/release/pixi.js"></script>
+    <link rel="styleshee" href="style.css">
 </head>
 <body>
-    <!-- The div where Pixi.js canvas will be appended -->
+    <!-- Add a container for the Pixi.js canvas -->
     <div id="pixi-container"></div>
-    
-    <!-- Include your Pixi.js script after the div -->
-    <!-- <script src="pixi-app.js"></script> -->
-    <script type="module" src="pixi-app.js"></script>
+
+    <!-- Display the values -->
+    <div id="iteration">Iteration: </div>
+    <div id="best-score">Best Score: </div>
+    <div id="shared-patterns">Number of Shared Patterns: </div>
+
+    <script src="pixi-app.js"></script>
 </body>
 </html>
