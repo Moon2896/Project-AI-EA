@@ -192,7 +192,9 @@ def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
             individual_to_mutate.mutate()
     
     # 4. Replacement
-    individuals = np.concatenate([offspring[:n_individuals], selected_parents[:n_individuals - len(offspring)]])
+    best_parent = individuals[np.argmax(probabilities)]
+    individuals = np.concatenate([[best_parent], offspring, selected_parents])
+    individuals = individuals[:n_individuals]
     
     return individuals
 
@@ -310,8 +312,6 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
     no_improvement_counter = 0
     
     alpha, beta, gamma = initial_alpha, initial_beta, initial_gamma
-    
-
 
     for i in tqdm(range(max_iterations)):
         individuals = epoch(individuals, distance_matrix, alpha, beta, gamma)
@@ -393,7 +393,7 @@ global output_csv_path
 output_csv_path = './python_implem/output.csv'
 
 global french_cities_path
-french_cities_path = './python_implem/python/fr.csv'
+french_cities_path = './python_implem/python/worldcities_10k.json'
 
 if __name__ == "__main__":
     print("Clearing output.csv")
@@ -404,15 +404,14 @@ if __name__ == "__main__":
     import os
     print("Current Working Directory:", os.getcwd())
     try:
-        french_cities = pd.read_csv(french_cities_path)
+        french_cities = pd.read_json(french_cities_path)
     except ValueError as e:
         print("Error reading CSV file:", e)
     
-
     # cities df
-    C = french_cities[['city','lat','lng']]
+    C = french_cities[['city_ascii','lat','lng']]
     
-    max_cities = 50
+    max_cities = 1_000
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
@@ -433,22 +432,22 @@ if __name__ == "__main__":
     results = train(
         distance_matrix = D_spherical_france,
         max_cities=max_cities,
-        n_individuals=1_000,
+        n_individuals=100,
         initial_alpha=initial_alpha,
         initial_beta=initial_beta,
         initial_gamma=initial_gamma,
         max_iterations=10_000,
-        early_stopping_rounds=1_000
+        early_stopping_rounds=100
         )
 
     best_iteration = np.argmin(results['Score'])
     best_individual_path = results['Best Individual'].iloc[best_iteration]
-    best_individual_path = [int(x) for x in best_individual_path[1:-1].split(', ')]
+    best_individual_path = [int(x) for x in best_individual_path[1:-1]]
     best_individual = individual(n_cities=max_cities, fixed=best_individual_path)
 
-    # print('Saving results')
-    # best_score = min(results['Score'])
-    # results.to_csv(f'./results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
+    print('Saving results')
+    best_score = min(results['Score'])
+    results.to_csv(f'./results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
 
     # print('Best iteration:')
     # visualize_path_cities(best_individual,C,D_spherical_france)

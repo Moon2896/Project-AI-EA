@@ -40,6 +40,32 @@ app.get('/data', (req, res) => {
   });
 });
 
+// Define a route to read and send the JSON file
+app.get('/cities', (req, res) => {
+  const filePath = './python_implem/python/worldcities_10k.json'; // Path to your JSON file
+
+  // Read the JSON file using fs.readFile
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading JSON file:', err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      // Parse the JSON data
+      let jsonData;
+      try {
+        jsonData = JSON.parse(data);
+      } catch (parseError) {
+        console.error('Error parsing JSON:', parseError);
+        res.status(500).send('Internal Server Error');
+        return;
+      }
+
+      // Send the JSON data as the response
+      res.json(jsonData);
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
