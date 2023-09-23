@@ -1,2 +1,3 @@
 # ignore the results directory
 python_implem/results/
+python_implem/output.csv
