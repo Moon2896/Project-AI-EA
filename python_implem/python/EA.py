@@ -411,7 +411,7 @@ if __name__ == "__main__":
     # cities df
     C = french_cities[['city_ascii','lat','lng']]
     
-    max_cities = 1_000
+    max_cities = 100
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
@@ -432,12 +432,12 @@ if __name__ == "__main__":
     results = train(
         distance_matrix = D_spherical_france,
         max_cities=max_cities,
-        n_individuals=100,
+        n_individuals=1_000,
         initial_alpha=initial_alpha,
         initial_beta=initial_beta,
         initial_gamma=initial_gamma,
         max_iterations=10_000,
-        early_stopping_rounds=100
+        early_stopping_rounds=250
         )
 
     best_iteration = np.argmin(results['Score'])
@@ -447,7 +447,4 @@ if __name__ == "__main__":
 
     print('Saving results')
     best_score = min(results['Score'])
-    results.to_csv(f'./results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
-
-    # print('Best iteration:')
-    # visualize_path_cities(best_individual,C,D_spherical_france)
+    results.to_csv(f'../results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
