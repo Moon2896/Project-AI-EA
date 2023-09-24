@@ -333,7 +333,7 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
         
         # Gradual change of hyperparameters
         # A slow decay rate as the rate of convergence of EA is sllllow 
-        decay_rate = 0.99  
+        decay_rate = 0.99 
         alpha *= decay_rate
         # Adding perturbation in the number of mutations over the population
         # Mainly, if there is not enough mutation or there is no improvement
@@ -347,14 +347,14 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
         number_of_same_individuals = statistics_df['Number of Same Individuals'].iloc[-1]
         if (number_of_same_individuals > n_individuals*0.05): # 5% of the individuals are the same
             # here we want high mutation rate in individuals when not a lot of diversity is reached
-            beta = 0.5 # here at max 10% or 10 (see aboe) gene from a single individual are mutated  
+            beta = max(min(beta, 0.5),0.25) # here at max 10% or 10 (see aboe) gene from a single individual are mutated  
             # print('Beta got updated {}'.format(beta))
 
 
         # gamma is the crossover rate, meaning 2*gamma% of the offsprings are from crossover
         # we want to share the good genes if some are found to be very performant
         gamma *= decay_rate
-        if statistics_df['Q3'].iloc[-1]<1.1*statistics_df['Q1'].iloc[-1]:
+        if statistics_df['Q3'].iloc[-1]<2*statistics_df['Q1'].iloc[-1]:
             # we want more crossover when "mid" individuals are stuck
             gamma = max(0.25, gamma)
             # print('Gamma got updated {}'.format(gamma))
@@ -389,11 +389,11 @@ def visualize_path_on_map(individual, cities_df):
     
     return m
 
-global output_csv_path
-output_csv_path = './python_implem/output.csv'
-
 global french_cities_path
 french_cities_path = './python_implem/python/worldcities_10k.json'
+
+global output_csv_path
+output_csv_path = './python_implem/output.csv'
 
 if __name__ == "__main__":
     print("Clearing output.csv")
@@ -411,11 +411,12 @@ if __name__ == "__main__":
     # cities df
     C = french_cities[['city_ascii','lat','lng']]
     
-    max_cities = 100
+    max_cities = 241
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
     D_spherical_france = compute_spherical_D(french_cities.iloc[:max_cities])
+    # pd.DataFrame(D_spherical_france).to_csv('./dsf.csv')
     minimum, maximum = np.min(D_spherical_france), np.max(D_spherical_france)
     D_spherical_france = ( D_spherical_france - minimum) / ( maximum - minimum )
     D_spherical_france = np.array(D_spherical_france).astype(np.float64)
@@ -432,19 +433,19 @@ if __name__ == "__main__":
     results = train(
         distance_matrix = D_spherical_france,
         max_cities=max_cities,
-        n_individuals=1_000,
+        n_individuals=250,
         initial_alpha=initial_alpha,
         initial_beta=initial_beta,
         initial_gamma=initial_gamma,
         max_iterations=10_000,
-        early_stopping_rounds=250
+        early_stopping_rounds=10_000
         )
 
-    best_iteration = np.argmin(results['Score'])
-    best_individual_path = results['Best Individual'].iloc[best_iteration]
-    best_individual_path = [int(x) for x in best_individual_path[1:-1]]
-    best_individual = individual(n_cities=max_cities, fixed=best_individual_path)
+    # best_iteration = np.argmin(results['Score'])
+    # best_individual_path = results['Best Individual'].iloc[best_iteration]
+    # best_individual_path = [int(x) for x in best_individual_path[1:-1]]
+    # best_individual = individual(n_cities=max_cities, fixed=best_individual_path)
 
     print('Saving results')
     best_score = min(results['Score'])
-    results.to_csv(f'../results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
+    results.to_csv(f'.python_implem/results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
