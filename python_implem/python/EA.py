@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import time
 from tqdm import tqdm
-from multiprocessing import Pool, cpu_count
+# from multiprocessing import Pool, cpu_count
 import random
 import matplotlib.pyplot as plt
 import folium
@@ -161,7 +161,7 @@ def visualize_path_cities(individual, cities_df, distance_matrix):
 def compute_fitness(individual, distance_matrix):
    return 1 / individual.evaluate(distance_matrix)
 
-import multiprocessing as mp
+# import multiprocessing as mp
 
 def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
     
