@@ -16,6 +16,46 @@ import csv
 ### class
 
 class individual:
+    """
+    The 'individual' class represents an individual in a Genetic Algorithm (GA) used for solving the Traveling Salesman Problem (TSP). This class defines the properties and behaviors of an individual, which includes generating random or specified paths, evaluating the fitness of a path, mutating the path, and performing crossover with another individual.
+
+    Attributes:
+        - n_cities (int): The number of cities in the TSP.
+        - randomize (bool): A flag indicating whether to randomize the initial path.
+        - fixed (list): An optional list specifying a fixed path if provided.
+
+    Methods:
+        - __init__(self, n_cities=None, randomize=True, fixed=None):
+            Initializes an individual with a random or specified path.
+
+        - evaluate(self, D):
+            Evaluates the fitness of the current path based on a distance matrix 'D'. It calculates the total distance of the path and stores it.
+
+        - mutate(self):
+            Performs a mutation operation on the path by swapping two randomly selected cities.
+
+        - crossover(self, other):
+            Performs ordered crossover with another individual 'other' to generate a new individual with a combination of their paths.
+
+        - __str__(self):
+            Returns a string representation of the individual's path.
+
+    Usage:
+        # Create an individual with a random path of 10 cities
+        ind = individual(n_cities=10)
+
+        # Evaluate the fitness of the individual's path using a distance matrix 'D'
+        fitness = ind.evaluate(D)
+
+        # Mutate the individual's path
+        ind.mutate()
+
+        # Perform crossover with another individual 'other' to create a new individual
+        new_individual = ind.crossover(other)
+
+        # Get a string representation of the individual's path
+        path_str = str(ind)
+    """
 
     def __init__(
         self,
@@ -29,28 +69,24 @@ class individual:
         else:
             self.path = [i for i in range(self.n)] # [1,..., n]
             if randomize:
-                np.random.shuffle(self.path) # random permutation of 
+                np.random.shuffle(self.path)
         
     def evaluate(self, D):
-        # Create an array of city indices from the path
+        # Get the cities and new cities [c_1, ..., c_n], [c_n, c1, ..., c_n-1] 
         city_indices = np.array(self.path)
-        
-        # Create an array of next city indices by shifting the city_indices array by one position
         next_city_indices = np.roll(city_indices, shift=-1)
-        
-        # Use advanced indexing to get the distances from D
-        distances = D[city_indices, next_city_indices]
-        
-        # Sum the distances to get the total distance
+
+        # Get the distances from D and add them up
+        distances = D[city_indices, next_city_indices]        
         total_distance = np.sum(distances)
-        
         self.total_distance = total_distance
+
         return total_distance
 
     
     def mutate(self):
-        # Swap c_i and c_j
         i, j = random.choices(range(self.n), k=2)
+        # Swap c_i and c_j
         self.path[i], self.path[j] = self.path[j], self.path[i]
         return self
 
@@ -71,6 +107,7 @@ class individual:
         return individual(n_cities=self.n, fixed=newborn_path)
     
     def __str__(self) -> str:
+        # use for quick print
         res = str(self.path)
         return res
 
@@ -78,14 +115,35 @@ class individual:
 
 def visualize_paths_grid(individuals, cities_coordinates, distance_matrix, grid_shape=None):
     """
-    Visualize multiple paths in a grid of plots.
-    
+    The 'visualize_paths_grid' function is used to visualize multiple paths of individuals in a grid of plots for the Traveling Salesman Problem (TSP). It provides a visual representation of the paths on a scatter plot with cities' coordinates and their connections.
+
     Parameters:
-    - individuals: A list of instances of the 'individual' class.
-    - cities_coordinates: A list of (x, y) coordinates for each city.
-    - distance_matrix: A matrix of distances between cities.
-    - grid_shape: Tuple specifying the shape of the grid (rows, columns). If None, a square grid is used.
+        - individuals (list): A list of instances of the 'individual' class representing different paths to visualize.
+        - cities_coordinates (list): A list of (x, y) coordinates for each city in the TSP.
+        - distance_matrix (numpy.ndarray): A matrix of distances between cities.
+        - grid_shape (tuple, optional): Tuple specifying the shape of the grid (rows, columns) for the subplots. If None, a square grid is automatically determined based on the number of individuals.
+
+    Usage:
+        - Provide a list of 'individual' instances, each representing a different path.
+        - Specify the coordinates of the cities as a list of (x, y) tuples.
+        - Pass the distance matrix, which is used to evaluate the fitness of the individuals.
+        - Optionally, specify the grid shape for arranging the subplots. If not provided, the function will create a square grid based on the number of individuals.
+
+    Example:
+        # Create a list of 'individual' instances
+        individuals = [individual(n_cities=10), individual(n_cities=10), individual(n_cities=10)]
+
+        # Specify the coordinates of cities
+        cities_coordinates = [(0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9)]
+
+        # Create a distance matrix for the cities
+
+        # Visualize the paths of individuals in a grid
+        visualize_paths_grid(individuals, cities_coordinates, distance_matrix)
+
+    The function will create a grid of plots where each subplot shows the cities as blue points and the path of an individual in red. The title of each subplot includes the path number and its corresponding distance.
     """
+
     n_individuals = len(individuals)
     
     # Determine grid shape if not provided
@@ -101,7 +159,7 @@ def visualize_paths_grid(individuals, cities_coordinates, distance_matrix, grid_
     for i, ind in enumerate(individuals):
         ax = axes[i]
         
-        # Plot cities
+        # Plot the cities
         for city_coord in cities_coordinates:
             ax.scatter(city_coord[0], city_coord[1], color='blue', marker='o')
         
@@ -117,7 +175,7 @@ def visualize_paths_grid(individuals, cities_coordinates, distance_matrix, grid_
         ax.set_title(f'Path {i+1} - Distance: {ind.evaluate(distance_matrix):.2f}')
         ax.grid(True)
     
-    # Remove any unused subplots
+    # Remove any unused subplots (n*m<len(individuals))
     for i in range(n_individuals, grid_shape[0] * grid_shape[1]):
         axes[i].axis('off')
     
@@ -126,11 +184,33 @@ def visualize_paths_grid(individuals, cities_coordinates, distance_matrix, grid_
 
 def visualize_path_cities(individual, cities_df, distance_matrix):
     """
-    Visualize the path taken by an individual.
-    
+    The 'visualize_path_cities' function is used to visualize the path taken by an individual in the Traveling Salesman Problem (TSP). It displays a scatter plot of cities along with their names and the path taken by the individual to connect those cities.
+
     Parameters:
-    - individual: An instance of the 'individual' class.
-    - cities_df: A DataFrame with columns 'city', 'lat', and 'lng'.
+        - individual (individual): An instance of the 'individual' class representing the path to visualize.
+        - cities_df (pandas.DataFrame): A DataFrame containing information about cities, including 'city', 'lat', and 'lng'.
+        - distance_matrix (numpy.ndarray): A matrix of distances between cities.
+
+    Usage:
+        - Provide an 'individual' instance representing the path to visualize.
+        - Specify a pandas DataFrame ('cities_df') with columns 'city', 'lat', and 'lng' containing information about the cities.
+        - Pass the distance matrix, which is used to evaluate the fitness of the individual's path.
+
+    Example:
+        # Create an 'individual' instance representing a path
+        ind = individual(n_cities=10)
+        
+        # Create a DataFrame with city information
+        cities_df = pd.DataFrame({
+            'city': range(10),
+            'lat': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            'lng': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        })
+        
+        # Visualize the path taken by the individual
+        visualize_path_cities(ind, cities_df, distance_matrix)
+
+    The function will create a scatter plot showing the cities as blue points, with their names labeled. The path taken by the individual is represented by a red line, and the plot includes the distance of the path in the title.
     """
     # Extract the lat and lng coordinates for the cities in the path
     lat_coords = [cities_df.loc[city, 'lat'] for city in individual.path]
@@ -159,12 +239,53 @@ def visualize_path_cities(individual, cities_df, distance_matrix):
 ### Epochs
 
 def compute_fitness(individual, distance_matrix):
-   return 1 / individual.evaluate(distance_matrix)
+    """
+    The 'compute_fitness' function calculates the fitness of an individual based on the inverse of the total distance it covers in a Traveling Salesman Problem (TSP).
+
+    Parameters:
+        - individual (individual): An instance of the 'individual' class representing the path to evaluate.
+        - distance_matrix (numpy.ndarray): A matrix of distances between cities.
+
+    Returns:
+        - fitness (float): The fitness value of the individual, which is the inverse of the total distance.
+
+    Usage:
+        - Provide an 'individual' instance representing the path to evaluate.
+        - Pass the distance matrix, which is used to evaluate the fitness.
+
+    Example:
+        # Calculate the fitness of an individual
+        fitness = compute_fitness(ind, distance_matrix)
+    """
+    return 1 / individual.evaluate(distance_matrix)
 
 # import multiprocessing as mp
 
 def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
-    
+    """
+    The 'epoch' function performs one iteration of a genetic algorithm (GA) epoch, including selection, crossover, mutation, and replacement operations.
+
+    Parameters:
+        - individuals (list): A list of instances of the 'individual' class representing the population of individuals.
+        - distance_matrix (numpy.ndarray): A matrix of distances between cities.
+        - alpha (float): The mutation rate, representing the proportion of individuals to mutate.
+        - beta (float): The mutation strength, representing the proportion of genes to mutate within an individual.
+        - gamma (float): The crossover rate, representing the proportion of individuals to produce offspring.
+
+    Returns:
+        - individuals (list): The updated list of individuals after performing selection, crossover, mutation, and replacement.
+
+    Usage:
+        - Provide a list of 'individual' instances representing the population.
+        - Pass the distance matrix, which is used for fitness evaluation.
+        - Optionally, set alpha, beta, and gamma to control the mutation rate, mutation strength, and crossover rate, respectively.
+
+    Example:
+        # Perform one epoch of the genetic algorithm
+        new_population = epoch(population, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5)
+
+    The function modifies the 'individuals' list according to the specified genetic algorithm operations.
+    """
     n_individuals = len(individuals)
     
     # 1. Selection
@@ -199,6 +320,37 @@ def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
     return individuals
 
 def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, gamma):
+    """
+    The 'update_statistics' function updates statistics and logs information about the progress of a genetic algorithm (GA) iteration for solving the Traveling Salesman Problem (TSP).
+
+    Parameters:
+        - df (pandas.DataFrame): A DataFrame for storing and tracking statistics across GA iterations.
+        - distance_matrix (numpy.ndarray): A matrix of distances between cities.
+        - iteration (int): The current iteration step.
+        - individuals (list): A list of instances of the 'individual' class representing the population.
+        - alpha (float): The mutation rate used in the GA.
+        - beta (float): The mutation strength used in the GA.
+        - gamma (float): The crossover rate used in the GA.
+
+    Returns:
+        - df (pandas.DataFrame): The updated DataFrame with statistics.
+        
+    Usage:
+        - Provide a pandas DataFrame ('df') for storing statistics across iterations.
+        - Pass the distance matrix, which is used for evaluating the individuals' fitness.
+        - Specify the current iteration step.
+        - Provide a list of 'individual' instances representing the population at the current iteration.
+        - Set values for alpha, beta, and gamma, which are used in the statistics.
+        
+    Example:
+        # Initialize a DataFrame for tracking statistics
+        statistics_df = pd.DataFrame(columns=['Iteration', 'Number of Individuals', 'Best Individual', 'All Scores', 'Number of Same Individuals', 'Number of Shared Patterns', 'Score', 'alpha', 'beta', 'gamma', 'Median', 'Q1', 'Q3', 'Max'])
+        
+        # Update statistics after an iteration of the GA
+        statistics_df = update_statistics(statistics_df, distance_matrix, iteration, population, alpha=0.5, beta=0.5, gamma=0.5)
+
+    The function calculates and logs various statistics for a GA iteration, including the best individual's path, the number of same individuals, the number of shared patterns, and various statistics about the fitness scores of the population. It appends this information to the provided DataFrame and saves it to a CSV file.
+    """
     # Iteration step
     step = iteration
 
@@ -211,11 +363,12 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
     num_same_individuals = len(individuals) - len(unique_individuals)
     
     # Number of shared patterns between individuals
-    # Here, we'll count shared subpaths of length 3 as an example
+    # Here, we'll count shared subpaths of length 5
+    subpathlength = 5
     patterns = []
     for ind in individuals:
-        for i in range(len(ind.path) - 2):
-            patterns.append(tuple(ind.path[i:i+3]))
+        for i in range(len(ind.path) - subpathlength+1):
+            patterns.append(tuple(ind.path[i:i+subpathlength]))
     num_shared_patterns = len(patterns) - len(set(patterns))
     
     # Score
@@ -245,6 +398,28 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
     return df
 
 def append_to_csv(filename, data):
+    """
+    The 'append_to_csv' function appends data to a CSV (Comma-Separated Values) file. It is used to log information or records into an existing CSV file.
+
+    Parameters:
+        - filename (str): The name of the CSV file to which data will be appended.
+        - data (dict): A dictionary containing the data to append to the CSV file. The keys of the dictionary represent the column names, and the values represent the data for each column.
+
+    Usage:
+        - Provide the 'filename' of the CSV file to which you want to append data.
+        - Pass a 'data' dictionary containing the data to append, where keys are column names and values are the corresponding data for each column.
+
+    Example:
+        # Define data to append to a CSV file
+        data_to_append = {
+            ... some data ...
+        }
+
+        # Append the data to the CSV file
+        append_to_csv('output.csv', data_to_append)
+
+    The function opens the specified CSV file in append mode, writes the data, and handles the creation of the header row if the file is empty. It uses a dictionary to map column names to data values and writes them as rows in the CSV file.
+    """
     try:
         # Open the CSV file in append mode
         with open(filename, mode='a', newline='') as file:
@@ -258,11 +433,25 @@ def append_to_csv(filename, data):
             # Write the data to the CSV file
             writer.writerow(data)
 
-        #print("Data appended to", filename)
     except Exception as e:
         print("Error:", e)
 
 def clear_csv_file(filename):
+    """
+    The 'clear_csv_file' function clears the contents of a CSV (Comma-Separated Values) file by opening it in write mode. It effectively empties the file, removing all its data.
+
+    Parameters:
+        - filename (str): The name of the CSV file to clear.
+
+    Usage:
+        - Provide the 'filename' of the CSV file that you want to clear.
+
+    Example:
+        # Clear the contents of a CSV file named 'example.csv'
+        clear_csv_file('example.csv')
+
+    The function opens the specified CSV file in write mode, which clears its contents by effectively overwriting it with an empty file. This can be useful when you want to reset or clear the data in an existing CSV file.
+    """
     try:
         # Open the CSV file in write mode to clear its contents
         with open(filename, mode='w', newline=''):
@@ -273,8 +462,32 @@ def clear_csv_file(filename):
         print("Error:", e)
 
 def compute_spherical_D(df):
+    """
+    The 'compute_spherical_D' function calculates the spherical distance matrix between a set of geographic coordinates represented as latitude and longitude values. It uses the Haversine formula to compute distances on the surface of a sphere, typically representing Earth's surface.
+
+    Parameters:
+        - df (pandas.DataFrame): A DataFrame containing geographic coordinates with columns 'lat' (latitude) and 'lng' (longitude).
+
+    Returns:
+        - D (numpy.ndarray): A symmetric matrix representing the spherical distances between the coordinates in the DataFrame. The matrix is in meters.
+
+    Usage:
+        - Provide a DataFrame ('df') with latitude and longitude columns for the geographic coordinates.
+        
+    Example:
+        # Create a DataFrame with latitude and longitude columns
+        coordinates_df = pd.DataFrame({
+            'lat': [51.5074, 48.8566, 40.7128],
+            'lng': [-0.1278, 2.3522, -74.0060]
+        })
+        
+        # Compute the spherical distance matrix
+        distance_matrix = compute_spherical_D(coordinates_df)
+
+    The function iterates through all pairs of coordinates in the DataFrame and calculates the spherical distances between them using the Haversine formula. The resulting distance matrix ('D') is symmetric and represents the distances in meters between each pair of coordinates.
+    """
     n = df.shape[0]
-    r = 6371e3 # earth radiu
+    r = 6371e3 # earth's radius
     D = np.zeros((n,n))
     for i in tqdm(range(n)):
         lat1 = df["lat"].iloc[i]
@@ -300,6 +513,36 @@ def compute_spherical_D(df):
     return D + D.T
 
 def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_beta, initial_gamma, max_iterations=1_000, early_stopping_rounds=250):
+    """
+    The 'train' function is used to perform the training of a genetic algorithm (GA) for solving the Traveling Salesman Problem (TSP). It trains the GA using the provided distance matrix, various hyperparameters, and tracks statistics over multiple iterations.
+
+    Parameters:
+        - distance_matrix (numpy.ndarray): A matrix of distances between cities, used for evaluating the fitness of individuals.
+        - max_cities (int): The maximum number of cities to consider in the TSP (to limit computation).
+        - n_individuals (int): The number of individuals (paths) in the population.
+        - initial_alpha (float): The initial mutation rate for individuals.
+        - initial_beta (float): The initial mutation strength (percentage of genes to mutate within an individual).
+        - initial_gamma (float): The initial crossover rate (percentage of offspring produced through crossover).
+        - max_iterations (int, optional): The maximum number of iterations for the GA.
+        - early_stopping_rounds (int, optional): The number of consecutive iterations with no improvement to trigger early stopping.
+
+    Returns:
+        - statistics_df (pandas.DataFrame): A DataFrame containing statistics tracked during the training process, such as best individual, number of same individuals, quartiles, and more.
+
+    Usage:
+        - Provide a distance matrix ('distance_matrix') for evaluating fitness.
+        - Specify the maximum number of cities to consider ('max_cities').
+        - Set the number of individuals in the population ('n_individuals').
+        - Initialize mutation rate ('initial_alpha'), mutation strength ('initial_beta'), and crossover rate ('initial_gamma').
+        - Optionally, set the maximum number of iterations and early stopping rounds.
+
+    Example:
+        # Train a GA for TSP
+        stats = train(distance_matrix, max_cities=10, n_individuals=50, initial_alpha=0.5, initial_beta=0.5, initial_gamma=0.5)
+
+    The function trains a GA by repeatedly applying the 'epoch' function, tracking statistics, and adjusting hyperparameters over iterations. 
+    Early stopping is triggered if no improvement is observed over a specified number of rounds. Hyperparameters alpha, beta, and gamma are adjusted based on the convergence and diversity of the population.
+    """
     n_cities = min(max_cities, distance_matrix.shape[0])
     
     # Initialize DataFrame
@@ -363,12 +606,38 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
 
 def visualize_path_on_map(individual, cities_df):
     """
-    Visualize the path taken by an individual on an interactive map.
-    
+    The 'visualize_path_on_map' function is used to visualize the path taken by an individual on an interactive map. 
+    It displays markers for cities and connects them in the order they are visited by the individual, creating a visual representation of the Traveling Salesman Problem (TSP) route.
+
     Parameters:
-    - individual: An instance of the 'individual' class.
-    - cities_df: A DataFrame with columns 'city', 'lat', and 'lng'.
+        - individual (individual): An instance of the 'individual' class representing the path to visualize.
+        - cities_df (pandas.DataFrame): A DataFrame with columns 'city', 'lat' (latitude), and 'lng' (longitude) containing information about the cities.
+
+    Returns:
+        - m (folium.Map): An interactive folium map with markers for each city and lines connecting them in the order they are visited.
+
+    Usage:
+        - Provide an 'individual' instance representing the path to visualize.
+        - Pass a pandas DataFrame ('cities_df') with city information, including latitude and longitude.
+        
+    Example:
+        # Create an 'individual' instance representing a path
+        ind = individual(n_cities=10)
+        
+        # Create a DataFrame with city information
+        cities_df = pd.DataFrame({
+            'city': range(10),
+            'lat': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            'lng': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        })
+        
+        # Visualize the path on an interactive map
+        map = visualize_path_on_map(ind, cities_df)
+        map.save('path_map.html')
+
+    The function uses the Folium library to create an interactive map, adding markers for each city and lines connecting them to represent the TSP route taken by the individual.
     """
+
     # Get the starting city's coordinates to center the map
     start_lat = cities_df.loc[individual.path[0], 'lat']
     start_lng = cities_df.loc[individual.path[0], 'lng']
@@ -395,7 +664,34 @@ french_cities_path = './python_implem/python/worldcities_10k.json'
 global output_csv_path
 output_csv_path = './python_implem/output.csv'
 
+
+
 if __name__ == "__main__":
+    """
+    The main script for solving the Traveling Salesman Problem (TSP) using a genetic algorithm with French cities data. 
+    It performs various tasks such as data loading, distance computation, training, and result saving.
+
+    Usage:
+        - Make sure you have the required libraries installed and the necessary data files (e.g., 'french_cities.json') available.
+        - Customize the script by adjusting parameters, such as 'max_cities,' 'initial_alpha,' 'initial_gamma,' 'initial_beta,' 'max_iterations,' and 'early_stopping_rounds.'
+        - Run the script to execute the TSP solving process and save the results.
+
+    Example:
+        # Customize parameters
+        max_cities = 241
+        initial_alpha = 1
+        initial_gamma = 1
+        initial_beta = 0
+        max_iterations = 10_000
+        early_stopping_rounds = 10_000
+
+        # Run the script
+        python main_script.py
+
+    The script first clears the output CSV file and then proceeds with loading the French cities data, computing distances, and training the genetic algorithm. 
+    The results, including statistics and the best individual's path, are saved to a CSV file.
+    """
+
     print("Clearing output.csv")
     clear_csv_file(output_csv_path)
 
