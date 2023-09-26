@@ -707,7 +707,7 @@ if __name__ == "__main__":
     # cities df
     C = french_cities[['city_ascii','lat','lng']]
     
-    max_cities = 241
+    max_cities = 1_000
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
@@ -729,12 +729,12 @@ if __name__ == "__main__":
     results = train(
         distance_matrix = D_spherical_france,
         max_cities=max_cities,
-        n_individuals=250,
+        n_individuals=1_000,
         initial_alpha=initial_alpha,
         initial_beta=initial_beta,
         initial_gamma=initial_gamma,
         max_iterations=10_000,
-        early_stopping_rounds=10_000
+        early_stopping_rounds=250
         )
 
     # best_iteration = np.argmin(results['Score'])
