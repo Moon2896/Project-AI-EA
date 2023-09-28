@@ -244,14 +244,6 @@ setInterval(async () => {
     </div>
     
     `;
-    //   <div class="box-parameters-section">
-    //   <h2>Box Parameters</h2>
-    //   <p>Min: ${bestScore}</p>
-    //   <p>Q1: ${q1}</p>
-    //   <p>Median: ${median}</p>
-    //   <p>Q3: ${q3}</p>
-    //   <p>Max: ${max}</p>
-    // </div>
     
     const plot_data = [
       {

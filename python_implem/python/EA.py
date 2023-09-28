@@ -707,7 +707,7 @@ if __name__ == "__main__":
     # cities df
     C = french_cities[['city_ascii','lat','lng']]
     
-    max_cities = 1_000
+    max_cities = 100
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
