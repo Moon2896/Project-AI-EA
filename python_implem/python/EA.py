@@ -12,6 +12,7 @@ import random
 import matplotlib.pyplot as plt
 import folium
 import csv
+import argparse
 
 ### class
 
@@ -658,11 +659,11 @@ def visualize_path_on_map(individual, cities_df):
 
     return m
 
-global french_cities_path
-french_cities_path = './python_implem/python/worldcities_10k.json'
+# global french_cities_path
+# french_cities_path = './python_implem/python/worldcities_10k.json'
 
-global output_csv_path
-output_csv_path = './python_implem/output.csv'
+# global output_csv_path
+# output_csv_path = './python_implem/output.csv'
 
 
 
@@ -692,6 +693,31 @@ if __name__ == "__main__":
     The results, including statistics and the best individual's path, are saved to a CSV file.
     """
 
+    parser = argparse.ArgumentParser(description="Solving the Traveling Salesman Problem using a genetic algorithm with French cities data.")
+
+    # Add command-line arguments
+    parser.add_argument("--input_cities_path", type=str, default='./python_implem/python/worldcities_10k.json', help="Path to the Input cities data file.", )
+    parser.add_argument("--output_path", type=str, default='./python_implem/output.csv', help="Path to the output csv to use.")
+    parser.add_argument("--max_cities", type=int, default=100, help="Maximum number of cities to consider.")
+    parser.add_argument("--initial_alpha", type=float, default=1, help="Initial value for alpha.")
+    parser.add_argument("--initial_gamma", type=float, default=1, help="Initial value for gamma.")
+    parser.add_argument("--initial_beta", type=float, default=0, help="Initial value for beta.")
+    parser.add_argument("--max_iterations", type=int, default=10_000, help="Maximum number of training iterations.")
+    parser.add_argument("--early_stopping_rounds", type=int, default=250, help="Number of iterations for early stopping.")
+
+    # Parse the arguments
+    args = parser.parse_args()
+
+    # Now, instead of hardcoding values, use the parsed arguments
+    input_cities_path = args.input_cities_path
+    output_csv_path = args.output_path
+    max_cities = args.max_cities
+    initial_alpha = args.initial_alpha
+    initial_gamma = args.initial_gamma
+    initial_beta = args.initial_beta
+    max_iterations = args.max_iterations
+    early_stopping_rounds = args.early_stopping_rounds
+
     print("Clearing output.csv")
     clear_csv_file(output_csv_path)
 
@@ -700,22 +726,22 @@ if __name__ == "__main__":
     import os
     print("Current Working Directory:", os.getcwd())
     try:
-        french_cities = pd.read_json(french_cities_path)
+        input_cities = pd.read_json(input_cities_path)
     except ValueError as e:
         print("Error reading CSV file:", e)
 
     # cities df
-    C = french_cities[['city_ascii','lat','lng']]
+    C = input_cities[['city_ascii','lat','lng']]
 
     max_cities = 100
 
     # update D
     print(f'Computing the distance between first {max_cities} French cities:')
-    D_spherical_france = compute_spherical_D(french_cities.iloc[:max_cities])
-    # pd.DataFrame(D_spherical_france).to_csv('./dsf.csv')
-    minimum, maximum = np.min(D_spherical_france), np.max(D_spherical_france)
-    D_spherical_france = ( D_spherical_france - minimum) / ( maximum - minimum )
-    D_spherical_france = np.array(D_spherical_france).astype(np.float64)
+    D_spherical_matrix = compute_spherical_D(input_cities.iloc[:max_cities])
+    # pd.DataFrame(D_spherical_matrix).to_csv('./dsf.csv')
+    minimum, maximum = np.min(D_spherical_matrix), np.max(D_spherical_matrix)
+    D_spherical_matrix = ( D_spherical_matrix - minimum) / ( maximum - minimum )
+    D_spherical_matrix = np.array(D_spherical_matrix).astype(np.float64)
 
     print(f'Scaling parameters : \n minimum := {minimum} \n maximum := {maximum}.')
 
@@ -727,7 +753,7 @@ if __name__ == "__main__":
     print('Training iteration {} {} {}...'.format(max_cities, initial_alpha, initial_gamma))
 
     results = train(
-        distance_matrix = D_spherical_france,
+        distance_matrix = D_spherical_matrix,
         max_cities=max_cities,
         n_individuals=1_000,
         initial_alpha=initial_alpha,

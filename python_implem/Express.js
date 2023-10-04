@@ -11,7 +11,6 @@ app.use(cors());
 app.get('/data', (req, res) => {
   // Specify the path to your CSV file
   const csvFilePath = './output.csv';
-  console.log('csvFilePath', csvFilePath);
   // Create a readable stream for reading the CSV file
   const fileStream = fs.createReadStream(csvFilePath);
 
