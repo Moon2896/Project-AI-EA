@@ -52,3 +52,13 @@ Run start-server.bat file
 
 ### On linux
 Run start-server.sh file (might need to chmod +x it depending on distribution)
+
+### If you run into trouble running the scripts:
+
+``` cd ./python_implem/python ```
+``` python3 ./EA.py ```
+``` cd .. ```
+``` python3 -m http.server 8000 ```
+``` npm start ```
+``` cd ../tsp-ol-app ```
+``` npm start ```

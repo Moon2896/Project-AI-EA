@@ -696,8 +696,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Solving the Traveling Salesman Problem using a genetic algorithm with French cities data.")
 
     # Add command-line arguments
-    parser.add_argument("--input_cities_path", type=str, default='./python_implem/python/worldcities_10k.json', help="Path to the Input cities data file.", )
-    parser.add_argument("--output_path", type=str, default='./python_implem/output.csv', help="Path to the output csv to use.")
+    parser.add_argument("--input_cities_path", type=str, default='./worldcities_10k.json', help="Path to the Input cities data file.", )
+    parser.add_argument("--output_path", type=str, default='../output.csv', help="Path to the output csv to use.")
     parser.add_argument("--max_cities", type=int, default=100, help="Maximum number of cities to consider.")
     parser.add_argument("--initial_alpha", type=float, default=1, help="Initial value for alpha.")
     parser.add_argument("--initial_gamma", type=float, default=1, help="Initial value for gamma.")
