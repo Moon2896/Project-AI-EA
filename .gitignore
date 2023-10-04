@@ -5,3 +5,4 @@ python_implem/python/worldcities_10k_primary.json
 python_implem/python/worldcities_10k_ttop10.json
 venv*
 node_modules/
+package-lock.json
