@@ -1,7 +1,7 @@
 ### Imports
 
 import warnings
-warnings.filterwarnings("ignore", category=FutureWarning) 
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 import numpy as np
 import pandas as pd
@@ -70,20 +70,20 @@ class individual:
             self.path = [i for i in range(self.n)] # [1,..., n]
             if randomize:
                 np.random.shuffle(self.path)
-        
+
     def evaluate(self, D):
-        # Get the cities and new cities [c_1, ..., c_n], [c_n, c1, ..., c_n-1] 
+        # Get the cities and new cities [c_1, ..., c_n], [c_n, c1, ..., c_n-1]
         city_indices = np.array(self.path)
         next_city_indices = np.roll(city_indices, shift=-1)
 
         # Get the distances from D and add them up
-        distances = D[city_indices, next_city_indices]        
+        distances = D[city_indices, next_city_indices]
         total_distance = np.sum(distances)
         self.total_distance = total_distance
 
         return total_distance
 
-    
+
     def mutate(self):
         i, j = random.choices(range(self.n), k=2)
         # Swap c_i and c_j
@@ -94,18 +94,18 @@ class individual:
         # ordered crossover
         start, end = sorted(random.choices(range(self.n), k=2))
         segment = self.path[start:end+1]
-        
+
         newborn_path = [-1] * self.n
         newborn_path[start:end+1] = segment
-        
+
         pointer = (end + 1) % self.n
         for city in other.path:
             if city not in segment:
                 newborn_path[pointer] = city
                 pointer = (pointer + 1) % self.n
-        
+
         return individual(n_cities=self.n, fixed=newborn_path)
-    
+
     def __str__(self) -> str:
         # use for quick print
         res = str(self.path)
@@ -145,40 +145,40 @@ def visualize_paths_grid(individuals, cities_coordinates, distance_matrix, grid_
     """
 
     n_individuals = len(individuals)
-    
+
     # Determine grid shape if not provided
     if not grid_shape:
         grid_size = int(np.ceil(np.sqrt(n_individuals)))
         grid_shape = (grid_size, grid_size)
-    
+
     fig, axes = plt.subplots(grid_shape[0], grid_shape[1], figsize=(15, 15))
-    
+
     # Flatten axes for easy iteration
     axes = axes.ravel()
-    
+
     for i, ind in enumerate(individuals):
         ax = axes[i]
-        
+
         # Plot the cities
         for city_coord in cities_coordinates:
             ax.scatter(city_coord[0], city_coord[1], color='blue', marker='o')
-        
+
         # Plot individual's path
         x_coords = [cities_coordinates[city][0] for city in ind.path]
         y_coords = [cities_coordinates[city][1] for city in ind.path]
-        
+
         # Add the starting city to the end to close the loop
         x_coords.append(x_coords[0])
         y_coords.append(y_coords[0])
-        
+
         ax.plot(x_coords, y_coords, color='red', linestyle='-', linewidth=1)
         ax.set_title(f'Path {i+1} - Distance: {ind.evaluate(distance_matrix):.2f}')
         ax.grid(True)
-    
+
     # Remove any unused subplots (n*m<len(individuals))
     for i in range(n_individuals, grid_shape[0] * grid_shape[1]):
         axes[i].axis('off')
-    
+
     plt.tight_layout()
     plt.show()
 
@@ -199,14 +199,14 @@ def visualize_path_cities(individual, cities_df, distance_matrix):
     Example:
         # Create an 'individual' instance representing a path
         ind = individual(n_cities=10)
-        
+
         # Create a DataFrame with city information
         cities_df = pd.DataFrame({
             'city': range(10),
             'lat': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
             'lng': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         })
-        
+
         # Visualize the path taken by the individual
         visualize_path_cities(ind, cities_df, distance_matrix)
 
@@ -215,21 +215,21 @@ def visualize_path_cities(individual, cities_df, distance_matrix):
     # Extract the lat and lng coordinates for the cities in the path
     lat_coords = [cities_df.loc[city, 'lat'] for city in individual.path]
     lng_coords = [cities_df.loc[city, 'lng'] for city in individual.path]
-    
+
     # Add the starting city to the end to close the loop
     lat_coords.append(lat_coords[0])
     lng_coords.append(lng_coords[0])
-    
+
     # Plot the cities as points
     plt.scatter(lng_coords, lat_coords, color='blue', marker='o')
-    
+
     # Label the cities with their names
     for i, city in enumerate(individual.path):
         plt.text(cities_df.loc[city, 'lng'], cities_df.loc[city, 'lat'], city, fontsize=12, ha='right')
-    
+
     # Plot the path
     plt.plot(lng_coords, lat_coords, color='red', linestyle='-', linewidth=1)
-    
+
     plt.title(f'Path taken by the salesman Distance: {individual.evaluate(distance_matrix):.2f}')
     plt.xlabel('Longitude')
     plt.ylabel('Latitude')
@@ -287,10 +287,10 @@ def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
     The function modifies the 'individuals' list according to the specified genetic algorithm operations.
     """
     n_individuals = len(individuals)
-    
+
     # 1. Selection
     fitnesses = [compute_fitness(ind, distance_matrix) for ind in individuals]
-    
+
     total_fitness = sum(fitnesses)
     probabilities = [f / total_fitness for f in fitnesses]
     selected_parents = np.random.choice(individuals, size=n_individuals, p=probabilities)
@@ -303,7 +303,7 @@ def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
         child1 = parent1.crossover(parent2)
         child2 = parent2.crossover(parent1)
         offspring.extend([child1, child2])
-    
+
     # 3. Mutation
     n_mutation = int(n_individuals * alpha)
     for _ in range(n_mutation):
@@ -311,12 +311,12 @@ def epoch(individuals, distance_matrix, alpha=0.5, beta=0.5, gamma=0.5):
         n_genes_to_mutate = 1 #min(int(min(beta,0.5) * individual_to_mutate.n),1)
         for _ in range(n_genes_to_mutate):
             individual_to_mutate.mutate()
-    
+
     # 4. Replacement
     best_parent = individuals[np.argmax(probabilities)]
     individuals = np.concatenate([[best_parent], offspring, selected_parents])
     individuals = individuals[:n_individuals]
-    
+
     return individuals
 
 def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, gamma):
@@ -334,18 +334,18 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
 
     Returns:
         - df (pandas.DataFrame): The updated DataFrame with statistics.
-        
+
     Usage:
         - Provide a pandas DataFrame ('df') for storing statistics across iterations.
         - Pass the distance matrix, which is used for evaluating the individuals' fitness.
         - Specify the current iteration step.
         - Provide a list of 'individual' instances representing the population at the current iteration.
         - Set values for alpha, beta, and gamma, which are used in the statistics.
-        
+
     Example:
         # Initialize a DataFrame for tracking statistics
         statistics_df = pd.DataFrame(columns=['Iteration', 'Number of Individuals', 'Best Individual', 'All Scores', 'Number of Same Individuals', 'Number of Shared Patterns', 'Score', 'alpha', 'beta', 'gamma', 'Median', 'Q1', 'Q3', 'Max'])
-        
+
         # Update statistics after an iteration of the GA
         statistics_df = update_statistics(statistics_df, distance_matrix, iteration, population, alpha=0.5, beta=0.5, gamma=0.5)
 
@@ -357,11 +357,11 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
     # Best individual
     scores = [ind.evaluate(distance_matrix) for ind in individuals]
     best_individual = min(individuals, key=lambda x: x.evaluate(distance_matrix))
-    
+
     # Number of same individuals
     unique_individuals = set(tuple(ind.path) for ind in individuals)
     num_same_individuals = len(individuals) - len(unique_individuals)
-    
+
     # Number of shared patterns between individuals
     # Here, we'll count shared subpaths of length 5
     subpathlength = 5
@@ -370,10 +370,10 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
         for i in range(len(ind.path) - subpathlength+1):
             patterns.append(tuple(ind.path[i:i+subpathlength]))
     num_shared_patterns = len(patterns) - len(set(patterns))
-    
+
     # Score
     best_score = best_individual.total_distance
-    
+
     # Append to DataFrame
     new_row = {
         'Iteration': step,
@@ -393,8 +393,8 @@ def update_statistics(df, distance_matrix, iteration, individuals, alpha, beta, 
     }
     df = df._append(new_row, ignore_index=True)
 
-    append_to_csv(output_csv_path, new_row)    
-    
+    append_to_csv(output_csv_path, new_row)
+
     return df
 
 def append_to_csv(filename, data):
@@ -473,14 +473,14 @@ def compute_spherical_D(df):
 
     Usage:
         - Provide a DataFrame ('df') with latitude and longitude columns for the geographic coordinates.
-        
+
     Example:
         # Create a DataFrame with latitude and longitude columns
         coordinates_df = pd.DataFrame({
             'lat': [51.5074, 48.8566, 40.7128],
             'lng': [-0.1278, 2.3522, -74.0060]
         })
-        
+
         # Compute the spherical distance matrix
         distance_matrix = compute_spherical_D(coordinates_df)
 
@@ -500,7 +500,7 @@ def compute_spherical_D(df):
             lat2 = df["lat"].iloc[j]
             phi2 = lat2 * np.pi / 180
             dphi = phi2-phi1
-            
+
             lng2 = df["lng"].iloc[j]
             tht2 = lng2 * np.pi / 180
             dtht = tht2-tht1
@@ -540,57 +540,57 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
         # Train a GA for TSP
         stats = train(distance_matrix, max_cities=10, n_individuals=50, initial_alpha=0.5, initial_beta=0.5, initial_gamma=0.5)
 
-    The function trains a GA by repeatedly applying the 'epoch' function, tracking statistics, and adjusting hyperparameters over iterations. 
+    The function trains a GA by repeatedly applying the 'epoch' function, tracking statistics, and adjusting hyperparameters over iterations.
     Early stopping is triggered if no improvement is observed over a specified number of rounds. Hyperparameters alpha, beta, and gamma are adjusted based on the convergence and diversity of the population.
     """
     n_cities = min(max_cities, distance_matrix.shape[0])
-    
+
     # Initialize DataFrame
     columns = ['Iteration', 'Best Individual', 'Number of Same Individuals', 'Number of Shared Patterns', 'Median', 'Q1', 'Q3', 'Max']
     statistics_df = pd.DataFrame(columns=columns)
 
     individuals = [individual(n_cities=n_cities) for _ in range(n_individuals)]
-    
+
     best_score = float('inf')
     no_improvement_counter = 0
-    
+
     alpha, beta, gamma = initial_alpha, initial_beta, initial_gamma
 
     for i in tqdm(range(max_iterations)):
         individuals = epoch(individuals, distance_matrix, alpha, beta, gamma)
         statistics_df = update_statistics(statistics_df, distance_matrix, i, individuals, alpha, beta, gamma)
-        
+
         current_score = statistics_df.iloc[-1]['Score']
-        
+
         # Score tracking
         if current_score < best_score:
             best_score = current_score
             no_improvement_counter = 0
         else:
             no_improvement_counter += 1
-        
+
         # Early stopping
         if no_improvement_counter >= early_stopping_rounds:
             print(f"Early stopping after {i} iterations.")
             break
-        
+
         # Gradual change of hyperparameters
-        # A slow decay rate as the rate of convergence of EA is sllllow 
-        decay_rate = 0.99 
+        # A slow decay rate as the rate of convergence of EA is sllllow
+        decay_rate = 0.99
         alpha *= decay_rate
         # Adding perturbation in the number of mutations over the population
         # Mainly, if there is not enough mutation or there is no improvement
         if (alpha < 0.01 or no_improvement_counter > early_stopping_rounds //2):
             alpha = max(0.25,alpha) # a quarter of the population is mutated
             # print('Alpha got updated {}'.format(alpha))
-            
-        
+
+
         # beta regulates the number of genes that are mutated, 1: 100%, 0.01: 1%
         beta *= decay_rate
         number_of_same_individuals = statistics_df['Number of Same Individuals'].iloc[-1]
         if (number_of_same_individuals > n_individuals*0.05): # 5% of the individuals are the same
             # here we want high mutation rate in individuals when not a lot of diversity is reached
-            beta = max(min(beta, 0.5),0.25) # here at max 10% or 10 (see aboe) gene from a single individual are mutated  
+            beta = max(min(beta, 0.5),0.25) # here at max 10% or 10 (see aboe) gene from a single individual are mutated
             # print('Beta got updated {}'.format(beta))
 
 
@@ -606,7 +606,7 @@ def train(distance_matrix, max_cities, n_individuals, initial_alpha, initial_bet
 
 def visualize_path_on_map(individual, cities_df):
     """
-    The 'visualize_path_on_map' function is used to visualize the path taken by an individual on an interactive map. 
+    The 'visualize_path_on_map' function is used to visualize the path taken by an individual on an interactive map.
     It displays markers for cities and connects them in the order they are visited by the individual, creating a visual representation of the Traveling Salesman Problem (TSP) route.
 
     Parameters:
@@ -619,18 +619,18 @@ def visualize_path_on_map(individual, cities_df):
     Usage:
         - Provide an 'individual' instance representing the path to visualize.
         - Pass a pandas DataFrame ('cities_df') with city information, including latitude and longitude.
-        
+
     Example:
         # Create an 'individual' instance representing a path
         ind = individual(n_cities=10)
-        
+
         # Create a DataFrame with city information
         cities_df = pd.DataFrame({
             'city': range(10),
             'lat': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
             'lng': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         })
-        
+
         # Visualize the path on an interactive map
         map = visualize_path_on_map(ind, cities_df)
         map.save('path_map.html')
@@ -641,21 +641,21 @@ def visualize_path_on_map(individual, cities_df):
     # Get the starting city's coordinates to center the map
     start_lat = cities_df.loc[individual.path[0], 'lat']
     start_lng = cities_df.loc[individual.path[0], 'lng']
-    
+
     # Create a folium map centered on the starting city
     m = folium.Map(location=[start_lat, start_lng], zoom_start=5)
-    
+
     # Add markers for each city in the path
     for city in individual.path:
         lat = cities_df.loc[city, 'lat']
         lng = cities_df.loc[city, 'lng']
         folium.Marker([lat, lng], tooltip=city).add_to(m)
-    
+
     # Add lines connecting the cities in the order they are visited
     path_coords = [(cities_df.loc[city, 'lat'], cities_df.loc[city, 'lng']) for city in individual.path]
     path_coords.append(path_coords[0])  # Close the loop
     folium.PolyLine(path_coords, color="red", weight=2.5, opacity=0.5).add_to(m)
-    
+
     return m
 
 global french_cities_path
@@ -668,7 +668,7 @@ output_csv_path = './python_implem/output.csv'
 
 if __name__ == "__main__":
     """
-    The main script for solving the Traveling Salesman Problem (TSP) using a genetic algorithm with French cities data. 
+    The main script for solving the Traveling Salesman Problem (TSP) using a genetic algorithm with French cities data.
     It performs various tasks such as data loading, distance computation, training, and result saving.
 
     Usage:
@@ -688,7 +688,7 @@ if __name__ == "__main__":
         # Run the script
         python main_script.py
 
-    The script first clears the output CSV file and then proceeds with loading the French cities data, computing distances, and training the genetic algorithm. 
+    The script first clears the output CSV file and then proceeds with loading the French cities data, computing distances, and training the genetic algorithm.
     The results, including statistics and the best individual's path, are saved to a CSV file.
     """
 
@@ -703,10 +703,10 @@ if __name__ == "__main__":
         french_cities = pd.read_json(french_cities_path)
     except ValueError as e:
         print("Error reading CSV file:", e)
-    
+
     # cities df
     C = french_cities[['city_ascii','lat','lng']]
-    
+
     max_cities = 100
 
     # update D
