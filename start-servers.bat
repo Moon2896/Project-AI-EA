@@ -9,12 +9,12 @@
 timeout /t 1 /nobreak
 
 @REM Start the Node.js Express.js server on port 3000
-cd "../python_implem/"
+cd "./python_implem/"
 start "Node.js Express Server" npm start
 
 @REM Wait for a moment to allow the Express.js server to start
 timeout /t 1 /nobreak
-
+cd ".."
 @REM Wait for a moment to allow the Express.js server to start
 timeout /t 1 /nobreak
 
@@ -25,7 +25,7 @@ start chrome http://localhost:3000/data
 start chrome http://127.0.0.1:5173/
 
 @REM Start the python script
-cd "../python_implem/python/"
+cd "./python_implem/python/"
 start "Python Script" python ./EA.py
 
 @REM Wait for user input to stop the servers (you can press Ctrl+C to stop them)

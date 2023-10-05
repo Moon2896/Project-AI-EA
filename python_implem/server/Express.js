@@ -10,7 +10,7 @@ app.use(cors());
 
 app.get('/data', (req, res) => {
   // Specify the path to your CSV file
-  const csvFilePath = './output.csv';
+  const csvFilePath = 'python_implem/output.csv';
   // Create a readable stream for reading the CSV file
   const fileStream = fs.createReadStream(csvFilePath);
 
@@ -41,7 +41,7 @@ app.get('/data', (req, res) => {
 
 // Define a route to read and send the JSON file
 app.get('/cities', (req, res) => {
-  const filePath = './python/worldcities_10k.json'; // Path to your JSON file
+  const filePath = 'python_implem/datasets/worldcities_10k.json'; // Path to your JSON file
   console.log('hey' );
 
   // Read the JSON file using fs.readFile

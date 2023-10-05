@@ -3,3 +3,4 @@ pandas
 tqdm
 matplotlib
 folium
+scalene

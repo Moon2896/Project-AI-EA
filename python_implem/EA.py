@@ -696,8 +696,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Solving the Traveling Salesman Problem using a genetic algorithm with French cities data.")
 
     # Add command-line arguments
-    parser.add_argument("--input_cities_path", type=str, default='./worldcities_10k.json', help="Path to the Input cities data file.", )
-    parser.add_argument("--output_path", type=str, default='../output.csv', help="Path to the output csv to use.")
+    parser.add_argument("--input_cities_path", "-i", type=str, default='./datasets/worldcities_10k.json', help="Path to the Input cities data file.", )
+    parser.add_argument("--output_path", "-o", type=str, default='./output.csv', help="Path to the output csv to use.")
+    parser.add_argument("--result_folder", "-r", type=str, default='./results', help="Path to the result folder to use.")
     parser.add_argument("--max_cities", type=int, default=100, help="Maximum number of cities to consider.")
     parser.add_argument("--initial_alpha", type=float, default=1, help="Initial value for alpha.")
     parser.add_argument("--initial_gamma", type=float, default=1, help="Initial value for gamma.")
@@ -711,6 +712,7 @@ if __name__ == "__main__":
     # Now, instead of hardcoding values, use the parsed arguments
     input_cities_path = args.input_cities_path
     output_csv_path = args.output_path
+    result_folder = args.result_folder
     max_cities = args.max_cities
     initial_alpha = args.initial_alpha
     initial_gamma = args.initial_gamma
@@ -769,4 +771,4 @@ if __name__ == "__main__":
 
     print('Saving results')
     best_score = min(results['Score'])
-    results.to_csv(f'.python_implem/results/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
+    results.to_csv(f'{result_folder}/results_{max_cities}_{time.time_ns()-start}_{time.time_ns()}_{best_score}.csv',index=False)
