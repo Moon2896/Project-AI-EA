@@ -13,14 +13,7 @@ cd "./tsp-ol-app/"
 npm run start &
 
 sleep 2
-
 cd "../"
-# Open Express.js server to fetch data in Chrome
-# xdg-open http://localhost:3000/data &
-
-# # Open OL application in Chrome
-# xdg-open http://127.0.0.1:5173/ &
-# sleep 2
 
 # Start the python script
 # python3 ./python/EA.py  &
