@@ -11,55 +11,38 @@ Let's install the dependencies.
 
 While we recommend using vritual environments, as they will ensured an isolated environment, they are not mandatory.
 
-Go into the python_implem folder:
-``` cd python_implem ```
+1. Create a new virtual environment:
+>python3 -m venv ./python_implem/venv>
+2. Activate the environment
+    ### Windows
+    >./python_implem/venv/Scripts/Activate.ps1
+    ### Linux
+    >source ./python_implem/venv/bin/activate
 
-### Dependencies for the evolutionary algorithm
+3. Install python dependencies
+>pip install -r ./python_implem/requirements.txt
 
-#### Creating a virtual environment (requires the venv package):
-    ``` python3 -m venv venv```
+4. Install python server dependencies
+>cd ./python_implem/server
+>npm i
+>cd ../..
 
-2. Activate it:
-On windows:
-``` ./venv/Scripts/Activate.ps1```
+5. Install visualisation dependencies
+>cd tsp-ol-app
+>npm i
+>cd ..
 
-On Linux:
-``` source ./venv/Scripts/activate ```
+## Execution
+You can either start the whole thing with default parameters by using the start-servers scripts, or first start the servers and then execute the algorithm if you want to modify the parameters:
 
-#### Install dependencies
-``` pip install -r requirements.txt ```
+### Manual start:
+Make sure you have the './python_implem/output.csv' file exists. You can create it empty if needed.
 
-### Dependencies for the evolutionary algorithm server:
-This server is used to serve the result file so that it can be accessed by our visualisation app later.
+1. Go to ./python_implem/server and run:
+>npm start
 
-#### Install dependencies
+2. Go to ./tsp-ol-app and run:
+>npm start
 
-```npm i```
-
-### Dependencies for the visualization app
-
-Go to the visualisation app folder
-
-```cd ../tsp-ol-app```
-
-#### Install dependencies
-
-```npm i```
-
-## Running the project
-
-### On windows
-Run start-server.bat file
-
-### On linux
-Run start-server.sh file (might need to chmod +x it depending on distribution)
-
-### If you run into trouble running the scripts:
-
-``` cd ./python_implem/python ```
-``` python3 ./EA.py ```
-``` cd .. ```
-``` python3 -m http.server 8000 ```
-``` npm start ```
-``` cd ../tsp-ol-app ```
-``` npm start ```
+3. From the root of the repository, run:
+python3 "./python_implem/EA.py" and have a look at the parameters !
