@@ -4,6 +4,9 @@ Project made by Baptiste Lesné and Iona Dommel-Prioux
 This project is split between the evolutionary algorithm implementation and visualization tools made in node.js.
 You will find the algorithm in the python_implem folder and the visualisation tool in the tsp-ol-app folder.
 
+## Results of the project
+
+**You can find the results of the project in the ./python_implem/experiments folder**
 ## Setup
 You will need python3 with version at least 3.9, aswell as node.js at least 16 in order to install the dependencies for this project.
 
